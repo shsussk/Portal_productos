@@ -720,6 +720,8 @@
     let evaluaciones = [];
     let productoActual = null;
 
+    const STORAGE_BUCKET_PRODUCTOS = 'productos_docs';
+
     const ESTADO_LABEL = {
       recibido: 'Recibido',
       info_incompleta: 'Información incompleta',
@@ -787,6 +789,37 @@
       if (producto && producto.puntuacion_total != null) return Number(producto.puntuacion_total);
       const ev = latestEvalByProducto(producto.id);
       return ev && ev.puntuacion_total != null ? Number(ev.puntuacion_total) : null;
+    }
+
+    async function descargarDocumento(path, nombre) {
+      try {
+        if (!path) {
+          showNotice('El documento no tiene una ruta válida.', true);
+          return;
+        }
+
+        const { data, error } = await window.supabase.storage
+          .from(STORAGE_BUCKET_PRODUCTOS)
+          .download(path);
+
+        if (error) throw error;
+        if (!data) throw new Error('No se recibió el archivo.');
+
+        const blobUrl = URL.createObjectURL(data);
+        const enlace = document.createElement('a');
+        enlace.href = blobUrl;
+        enlace.download = nombre || path.split('/').pop() || 'documento';
+        document.body.appendChild(enlace);
+        enlace.click();
+        enlace.remove();
+
+        setTimeout(() => {
+          URL.revokeObjectURL(blobUrl);
+        }, 1500);
+      } catch (err) {
+        console.error(err);
+        showNotice('No se pudo descargar el documento: ' + (err.message || err), true);
+      }
     }
 
     function renderSummary() {
@@ -1066,9 +1099,11 @@
 
     async function cargarDocumentos(productoId) {
       const box = $('mDocs');
+
       try {
         const res = await DB.documentos_producto.listarPorProducto(productoId);
         if (res.error) throw res.error;
+
         const docs = res.data || [];
 
         if (!docs.length) {
@@ -1076,14 +1111,51 @@
           return;
         }
 
-        box.innerHTML = docs.map(doc => `
-          <div class="doc-item">
-            <strong>${escapeHtml(doc.nombre || '-')}</strong>
-            <div class="muted" style="margin-top:4px;">Tipo: ${escapeHtml(doc.tipo || 'otro')} · ${escapeHtml(String(doc.tamano_kb || 0))} KB</div>
-            <div class="muted" style="margin-top:4px;">Subido por: ${escapeHtml(doc.subido_por || '-')}</div>
-            <div class="muted" style="margin-top:4px;">Path: ${escapeHtml(doc.path || '-')}</div>
-          </div>
-        `).join('');
+        box.innerHTML = '';
+        docs.forEach((doc) => {
+          const item = document.createElement('div');
+          item.className = 'doc-item';
+
+          const title = document.createElement('strong');
+          title.textContent = doc.nombre || '-';
+
+          const meta1 = document.createElement('div');
+          meta1.className = 'muted';
+          meta1.style.marginTop = '4px';
+          meta1.textContent = 'Tipo: ' + (doc.tipo || 'otro') + ' · ' + String(doc.tamano_kb || 0) + ' KB';
+
+          const meta2 = document.createElement('div');
+          meta2.className = 'muted';
+          meta2.style.marginTop = '4px';
+          meta2.textContent = 'Subido por: ' + (doc.subido_por || '-');
+
+          const meta3 = document.createElement('div');
+          meta3.className = 'muted';
+          meta3.style.marginTop = '4px';
+          meta3.style.wordBreak = 'break-all';
+          meta3.textContent = 'Path: ' + (doc.path || '-');
+
+          const actions = document.createElement('div');
+          actions.style.marginTop = '10px';
+
+          const btnDownload = document.createElement('button');
+          btnDownload.className = 'btn btn-primary btn-sm';
+          btnDownload.type = 'button';
+          btnDownload.textContent = 'Descargar';
+          btnDownload.addEventListener('click', () => {
+            descargarDocumento(doc.path, doc.nombre);
+          });
+
+          actions.appendChild(btnDownload);
+
+          item.appendChild(title);
+          item.appendChild(meta1);
+          item.appendChild(meta2);
+          item.appendChild(meta3);
+          item.appendChild(actions);
+
+          box.appendChild(item);
+        });
       } catch (err) {
         console.error(err);
         box.innerHTML = '<div class="empty">No se pudieron cargar los documentos.</div>';
@@ -1324,5 +1396,6 @@
   </script>
 </body>
 </html>
+
 
 
