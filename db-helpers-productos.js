@@ -272,66 +272,66 @@
   };
 
   DB.evaluaciones_producto = {
-    async listar() {
-      const supabase = requireSupabase();
-      return await supabase
-        .from('evaluaciones_producto')
-        .select('*')
-        .order('evaluado_en', { ascending: false });
-    },
+  async listar() {
+    const supabase = requireSupabase();
+    return await supabase
+      .from('evaluaciones_producto')
+      .select('*')
+      .order('evaluado_en', { ascending: false });
+  },
 
-    async listarPorProducto(productoId) {
-      const supabase = requireSupabase();
-      return await supabase
-        .from('evaluaciones_producto')
-        .select('*')
-        .eq('producto_id', productoId)
-        .order('evaluado_en', { ascending: false });
-    },
+  async listarPorProducto(productoId) {
+    const supabase = requireSupabase();
+    return await supabase
+      .from('evaluaciones_producto')
+      .select('*')
+      .eq('producto_id', productoId)
+      .order('evaluado_en', { ascending: false });
+  },
 
-    async obtenerUltimaPorProducto(productoId) {
-      const { data, error } = await this.listarPorProducto(productoId);
-      if (error) return { data: null, error };
-      return { data: data && data.length ? data[0] : null, error: null };
-    },
+  async obtenerUltimaPorProducto(productoId) {
+    const { data, error } = await this.listarPorProducto(productoId);
+    if (error) return { data: null, error };
+    return { data: data && data.length ? data[0] : null, error: null };
+  },
 
-    async crear(datos) {
-      const supabase = requireSupabase();
-      return await supabase
-        .from('evaluaciones_producto')
-        .insert({
-          id: datos.id || nowId('eval'),
-          producto_id: datos.producto_id,
-          alineacion_estrategica: Number(datos.alineacion_estrategica || 0),
-          viabilidad_tecnica: Number(datos.viabilidad_tecnica || 0),
-          potencial_mercado: Number(datos.potencial_mercado || 0),
-          diferenciacion: Number(datos.diferenciacion || 0),
-          soporte_proveedor: Number(datos.soporte_proveedor || 0),
-          comentarios: datos.comentarios || null,
-          evaluado_por: datos.evaluado_por || actorName()
-        })
-        .select()
-        .single();
-    },
+  async crear(datos) {
+    const supabase = requireSupabase();
+    return await supabase
+      .from('evaluaciones_producto')
+      .insert({
+        id: datos.id || nowId('eval'),
+        producto_id: datos.producto_id,
+        coherencia_cientifica: Number(datos.coherencia_cientifica || 0),
+        evidencia_previa: Number(datos.evidencia_previa || 0),
+        relevancia_problemas: Number(datos.relevancia_problemas || 0),
+        riesgo_regulatorio: Number(datos.riesgo_regulatorio || 0),
+        diferenciacion: Number(datos.diferenciacion || 0),
+        comentarios: datos.comentarios || null,
+        evaluado_por: datos.evaluado_por || actorName()
+      })
+      .select()
+      .single();
+  },
 
-    async actualizar(id, datos) {
-      const supabase = requireSupabase();
-      return await supabase
-        .from('evaluaciones_producto')
-        .update(cleanObject(datos))
-        .eq('id', id)
-        .select()
-        .single();
-    },
+  async actualizar(id, datos) {
+    const supabase = requireSupabase();
+    return await supabase
+      .from('evaluaciones_producto')
+      .update(cleanObject(datos))
+      .eq('id', id)
+      .select()
+      .single();
+  },
 
-    async eliminar(id) {
-      const supabase = requireSupabase();
-      return await supabase
-        .from('evaluaciones_producto')
-        .delete()
-        .eq('id', id);
-    }
-  };
+  async eliminar(id) {
+    const supabase = requireSupabase();
+    return await supabase
+      .from('evaluaciones_producto')
+      .delete()
+      .eq('id', id);
+  }
+};
 
   DB.reuniones_producto = {
     async listarPorProducto(productoId) {
