@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal de Proveedores · Registro de Productos</title>
+  <title>Portal de Proveedores · Solicitud de Producto</title>
   <style>
     :root {
       --color-cream-50: rgba(252, 252, 249, 1);
@@ -128,10 +128,6 @@
       margin: 0;
     }
 
-    .page {
-      min-height: 100vh;
-    }
-
     .topbar {
       display: flex;
       justify-content: space-between;
@@ -142,7 +138,7 @@
       background: var(--color-background);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
     }
 
     .brand h1 {
@@ -195,11 +191,6 @@
       background: var(--color-secondary-hover);
     }
 
-    .btn--danger {
-      background: rgba(var(--color-error-rgb), 0.12);
-      color: var(--color-error);
-    }
-
     .btn--sm {
       padding: var(--space-6) var(--space-12);
       font-size: var(--font-size-sm);
@@ -212,36 +203,36 @@
       padding: var(--space-24);
     }
 
-    .login-card,
     .card {
       background: var(--color-surface);
       border: 1px solid var(--color-card-border);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-sm);
+      padding: var(--space-20);
+      margin-bottom: var(--space-20);
     }
 
-    .login-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: calc(100vh - 90px);
-      padding: var(--space-24);
-    }
-
-    .login-card {
-      width: 100%;
-      max-width: 520px;
-      padding: var(--space-24);
-    }
-
-    .login-card h2 {
-      font-size: var(--font-size-2xl);
+    .section-title {
+      font-size: var(--font-size-xl);
       margin-bottom: var(--space-8);
     }
 
-    .login-card p {
+    .muted {
       color: var(--color-text-secondary);
-      margin-bottom: var(--space-20);
+      font-size: var(--font-size-sm);
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--space-16);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .form-group {
@@ -267,62 +258,30 @@
       font-family: inherit;
     }
 
+    textarea.form-control {
+      min-height: 90px;
+      resize: vertical;
+    }
+
     .form-control:focus {
       outline: 2px solid var(--color-primary);
       border-color: var(--color-primary);
     }
 
-    .grid {
-      display: grid;
-      gap: var(--space-16);
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .dashboard {
+    .notice {
+      background: rgba(var(--color-success-rgb), 0.10);
+      border: 1px solid rgba(var(--color-success-rgb), 0.25);
+      color: var(--color-success);
+      padding: var(--space-12);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-16);
       display: none;
     }
 
-    .dashboard.active {
-      display: block;
-    }
-
-    .summary {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: var(--space-12);
-      margin-bottom: var(--space-20);
-    }
-
-    .summary-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-card-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-16);
-    }
-
-    .summary-card .value {
-      font-size: var(--font-size-3xl);
-      font-weight: var(--font-weight-bold);
-      color: var(--color-primary);
-    }
-
-    .summary-card .label {
-      font-size: var(--font-size-sm);
-      color: var(--color-text-secondary);
-      margin-top: var(--space-4);
-    }
-
-    .section-title {
-      font-size: var(--font-size-xl);
-      margin-bottom: var(--space-12);
-    }
-
-    .card {
-      padding: var(--space-20);
-      margin-bottom: var(--space-20);
+    .notice.error {
+      background: rgba(var(--color-error-rgb), 0.10);
+      border-color: rgba(var(--color-error-rgb), 0.25);
+      color: var(--color-error);
     }
 
     .toolbar {
@@ -332,10 +291,6 @@
       gap: var(--space-12);
       flex-wrap: wrap;
       margin-bottom: var(--space-16);
-    }
-
-    .toolbar .search {
-      min-width: 280px;
     }
 
     .table-wrap {
@@ -400,7 +355,9 @@
       color: var(--color-success);
     }
 
-    .status-propuesto_ensayo {
+    .status-propuesto_ensayo,
+    .status-ensayo_diseño,
+    .status-ensayo_campo {
       background: rgba(147, 51, 234, 0.12);
       color: rgb(147, 51, 234);
     }
@@ -415,9 +372,13 @@
       color: var(--color-error);
     }
 
-    .muted {
+    .empty {
+      text-align: center;
+      padding: var(--space-24);
       color: var(--color-text-secondary);
-      font-size: var(--font-size-sm);
+      border: 1px dashed var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-background);
     }
 
     .modal-overlay {
@@ -438,7 +399,7 @@
 
     .modal {
       width: 100%;
-      max-width: 880px;
+      max-width: 900px;
       background: var(--color-surface);
       border: 1px solid var(--color-card-border);
       border-radius: var(--radius-lg);
@@ -506,6 +467,7 @@
 
     .detail-box .value {
       font-size: var(--font-size-base);
+      word-break: break-word;
     }
 
     .timeline {
@@ -535,58 +497,27 @@
       background: var(--color-primary);
     }
 
-    .notice {
-      background: rgba(var(--color-success-rgb), 0.10);
-      border: 1px solid rgba(var(--color-success-rgb), 0.25);
-      color: var(--color-success);
-      padding: var(--space-12);
+    .docs-list {
+      display: grid;
+      gap: var(--space-8);
+    }
+
+    .doc-item {
+      border: 1px solid var(--color-card-border);
       border-radius: var(--radius-md);
-      margin-bottom: var(--space-16);
-      display: none;
-    }
-
-    .notice.error {
-      background: rgba(var(--color-error-rgb), 0.10);
-      border-color: rgba(var(--color-error-rgb), 0.25);
-      color: var(--color-error);
-    }
-
-    .empty {
-      text-align: center;
-      padding: var(--space-24);
-      color: var(--color-text-secondary);
-      border: 1px dashed var(--color-border);
-      border-radius: var(--radius-lg);
+      padding: var(--space-10) var(--space-12);
       background: var(--color-background);
     }
 
-    @media (max-width: 900px) {
-      .summary {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .grid-2,
-      .detail-grid {
-        grid-template-columns: 1fr;
-      }
+    .doc-item small {
+      display: block;
+      margin-top: 4px;
+      color: var(--color-text-secondary);
     }
 
-    @media (max-width: 600px) {
-      .summary {
+    @media (max-width: 900px) {
+      .grid-2, .grid-3, .detail-grid {
         grid-template-columns: 1fr;
-      }
-
-      .topbar,
-      .toolbar {
-        align-items: stretch;
-      }
-
-      .actions {
-        width: 100%;
-      }
-
-      .actions .btn {
-        flex: 1;
       }
     }
 
@@ -597,218 +528,250 @@
   </style>
 </head>
 <body>
-  <div class="page">
-    <header class="topbar">
-      <div class="brand">
-        <h1>Portal de Proveedores</h1>
-        <p>Registro y seguimiento de productos para evaluación técnica</p>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Portal de Proveedores</h1>
+      <p>Registre su producto, adjunte documentación y consulte el estado de su solicitud.</p>
+    </div>
+    <div class="actions">
+      <a href="index.html" class="btn btn--secondary">Inicio</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2 class="section-title">Solicitud de evaluación</h2>
+      <p class="muted" style="margin-bottom:16px;">
+        Complete la información del solicitante, de la empresa y del producto. Después podrá consultar el seguimiento de su solicitud con su correo y empresa.
+      </p>
+
+      <div class="notice" id="mainNotice"></div>
+
+      <div class="grid grid-2">
+        <div>
+          <h3 class="section-title" style="font-size:18px;">Solicitante</h3>
+
+          <div class="form-group">
+            <label for="solNombre">Nombre del solicitante *</label>
+            <input type="text" id="solNombre" class="form-control" placeholder="Ej. Juan Pérez">
+          </div>
+
+          <div class="form-group">
+            <label for="solCorreo">Correo del solicitante *</label>
+            <input type="email" id="solCorreo" class="form-control" placeholder="ejemplo@empresa.com">
+          </div>
+
+          <div class="form-group">
+            <label for="solTelefono">Teléfono del solicitante</label>
+            <input type="text" id="solTelefono" class="form-control" placeholder="809-000-0000">
+          </div>
+
+          <div class="form-group">
+            <label for="solEmpresa">Empresa *</label>
+            <input type="text" id="solEmpresa" class="form-control" placeholder="Nombre de la empresa">
+          </div>
+
+          <div class="form-group">
+            <label for="solPais">País de la empresa</label>
+            <input type="text" id="solPais" class="form-control" placeholder="República Dominicana, Costa Rica, etc.">
+          </div>
+        </div>
+
+        <div>
+          <h3 class="section-title" style="font-size:18px;">Producto</h3>
+
+          <div class="form-group">
+            <label for="prodNombre">Nombre comercial *</label>
+            <input type="text" id="prodNombre" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="prodIngrediente">Ingrediente activo</label>
+            <input type="text" id="prodIngrediente" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="prodTipo">Tipo de producto *</label>
+            <select id="prodTipo" class="form-control">
+              <option value="fungicida">Fungicida</option>
+              <option value="insecticida">Insecticida</option>
+              <option value="bioestimulante">Bioestimulante</option>
+              <option value="poscosecha">Poscosecha</option>
+              <option value="fertilizante">Fertilizante</option>
+              <option value="biologico">Biológico</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="prodModo">Modo de acción</label>
+            <input type="text" id="prodModo" class="form-control">
+          </div>
+        </div>
       </div>
-      <div class="actions">
-        <button class="btn btn--secondary" id="btnCambiarEmpresa" style="display:none;">Cambiar empresa</button>
-        <a href="index.html" class="btn btn--secondary">Inicio</a>
-      </div>
-    </header>
 
-    <section class="login-wrap" id="loginSection">
-      <div class="login-card">
-        <h2>Ingresar al portal</h2>
-        <p>Selecciona tu empresa para ver y registrar tus productos.</p>
-
-        <div class="notice" id="loginNotice"></div>
-
+      <div class="grid grid-3">
         <div class="form-group">
-          <label for="empresaLogin">Empresa</label>
-          <select id="empresaLogin" class="form-control">
-            <option value="">Cargando empresas...</option>
+          <label for="prodCultivo">Cultivo objetivo *</label>
+          <select id="prodCultivo" class="form-control">
+            <option value="banano">Banano</option>
+            <option value="citricos">Cítricos</option>
+            <option value="ambos">Ambos</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="contactoLogin">Nombre del contacto</label>
-          <input type="text" id="contactoLogin" class="form-control" placeholder="Ej. Juan Pérez">
+          <label for="prodProblema">Problema que resuelve *</label>
+          <input type="text" id="prodProblema" class="form-control" placeholder="Ej. Sigatoka, Diaphorina, corona...">
         </div>
 
         <div class="form-group">
-          <label for="emailLogin">Correo del contacto</label>
-          <input type="email" id="emailLogin" class="form-control" placeholder="ejemplo@empresa.com">
+          <label for="prodPais">País de origen del producto</label>
+          <input type="text" id="prodPais" class="form-control">
         </div>
 
-        <button class="btn btn--primary" style="width:100%;" onclick="entrarPortal()">Entrar</button>
+        <div class="form-group">
+          <label for="prodRegistroRD">Registro en RD</label>
+          <select id="prodRegistroRD" class="form-control">
+            <option value="no">No</option>
+            <option value="si">Sí</option>
+            <option value="tramite">En trámite</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="prodRegistroOtros">Registro en otros países</label>
+          <input type="text" id="prodRegistroOtros" class="form-control" placeholder="Países o códigos de registro">
+        </div>
+
+        <div class="form-group">
+          <label for="prodContacto">Contacto técnico del producto *</label>
+          <input type="text" id="prodContacto" class="form-control" placeholder="Nombre, correo o teléfono">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prodMensaje">Descripción / mensaje adicional</label>
+        <textarea id="prodMensaje" class="form-control" placeholder="Describa el producto, evidencia disponible, experiencia previa, dosis o cualquier observación útil."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="prodDocs">Documentos del producto</label>
+        <input type="file" id="prodDocs" class="form-control" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png">
+        <p class="muted" style="margin-top:8px;">Adjunte ficha técnica, ensayos previos, registros, presentaciones u otros documentos.</p>
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;">
+        <button class="btn btn--secondary" onclick="limpiarFormulario()">Limpiar</button>
+        <button class="btn btn--primary" onclick="enviarSolicitud()">Enviar solicitud</button>
       </div>
     </section>
 
-    <main class="dashboard" id="dashboardSection">
-      <div class="container">
-        <div class="notice" id="mainNotice"></div>
-
-        <section class="summary" id="summaryCards"></section>
-
-        <section class="card">
-          <div class="toolbar">
-            <div>
-              <h2 class="section-title">Registrar nuevo producto</h2>
-              <p class="muted">Solo verás productos de tu empresa.</p>
-            </div>
-          </div>
-
-          <div class="grid grid-2">
-            <div class="form-group">
-              <label for="prodNombre">Nombre comercial *</label>
-              <input type="text" id="prodNombre" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="prodIngrediente">Ingrediente activo</label>
-              <input type="text" id="prodIngrediente" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <label for="prodTipo">Tipo de producto *</label>
-              <select id="prodTipo" class="form-control">
-                <option value="fungicida">Fungicida</option>
-                <option value="insecticida">Insecticida</option>
-                <option value="bioestimulante">Bioestimulante</option>
-                <option value="poscosecha">Poscosecha</option>
-                <option value="fertilizante">Fertilizante</option>
-                <option value="biologico">Biológico</option>
-                <option value="otro">Otro</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="prodModo">Modo de acción</label>
-              <input type="text" id="prodModo" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <label for="prodCultivo">Cultivo objetivo *</label>
-              <select id="prodCultivo" class="form-control">
-                <option value="banano">Banano</option>
-                <option value="citricos">Cítricos</option>
-                <option value="ambos">Ambos</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="prodProblema">Problema que resuelve *</label>
-              <input type="text" id="prodProblema" class="form-control" placeholder="Ej. Sigatoka, Diaphorina, corona...">
-            </div>
-
-            <div class="form-group">
-              <label for="prodPais">País de origen</label>
-              <input type="text" id="prodPais" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="prodRegistro">Registro en RD</label>
-              <select id="prodRegistro" class="form-control">
-                <option value="no">No</option>
-                <option value="si">Sí</option>
-                <option value="tramite">En trámite</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="prodContacto">Contacto técnico *</label>
-              <input type="text" id="prodContacto" class="form-control" placeholder="Nombre, correo o teléfono">
-            </div>
-            <div class="form-group">
-              <label for="prodDocs">Documentación disponible</label>
-              <input type="text" id="prodDocs" class="form-control" placeholder="Ficha técnica, ensayo previo, MSDS...">
-            </div>
-
-            <div class="form-group" style="grid-column:1 / -1;">
-              <label for="prodMensaje">Mensaje adicional</label>
-              <textarea id="prodMensaje" class="form-control" rows="4" placeholder="Describe antecedentes, uso esperado, dosis o cualquier observación relevante."></textarea>
-            </div>
-          </div>
-
-          <div style="display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;">
-            <button class="btn btn--secondary" onclick="limpiarFormulario()">Limpiar</button>
-            <button class="btn btn--primary" onclick="guardarProductoProveedor()">Enviar producto</button>
-          </div>
-        </section>
-
-        <section class="card">
-          <div class="toolbar">
-            <div>
-              <h2 class="section-title">Mis productos</h2>
-              <p class="muted" id="empresaActualLabel"></p>
-            </div>
-            <div class="search">
-              <label for="busqueda" class="muted" style="display:block;margin-bottom:6px;">Buscar</label>
-              <input type="text" id="busqueda" class="form-control" placeholder="Nombre, problema o tipo..." oninput="renderProductos()">
-            </div>
-          </div>
-
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Producto</th>
-                  <th>Tipo</th>
-                  <th>Cultivo</th>
-                  <th>Estado</th>
-                  <th>Última actualización</th>
-                  <th>Detalle</th>
-                </tr>
-              </thead>
-              <tbody id="productosBody"></tbody>
-            </table>
-          </div>
-        </section>
+    <section class="card">
+      <div class="toolbar">
+        <div>
+          <h2 class="section-title">Seguimiento de solicitud</h2>
+          <p class="muted">Consulte sus productos enviados usando el correo y la empresa registrados.</p>
+        </div>
       </div>
-    </main>
 
-    <div class="modal-overlay" id="detalleModal">
-      <div class="modal">
-        <div class="modal-header">
-          <div class="modal-header-flex">
-            <div>
-              <h2 id="detalleTitulo">Detalle del producto</h2>
-              <p class="muted" id="detalleSubtitulo"></p>
-            </div>
-            <button class="modal-close" onclick="cerrarModal()">&times;</button>
-          </div>
+      <div class="grid grid-2">
+        <div class="form-group">
+          <label for="trackCorreo">Correo del solicitante</label>
+          <input type="email" id="trackCorreo" class="form-control" placeholder="ejemplo@empresa.com">
         </div>
-        <div class="modal-body">
-          <div class="detail-grid" id="detalleGrid"></div>
+        <div class="form-group">
+          <label for="trackEmpresa">Empresa</label>
+          <input type="text" id="trackEmpresa" class="form-control" placeholder="Nombre de la empresa">
+        </div>
+      </div>
 
-          <div style="margin-bottom:16px;">
-            <h3 class="section-title" style="font-size:18px;">Mensaje de seguimiento</h3>
-            <div class="detail-box">
-              <div class="value" id="detalleMensajePublico">Sin mensaje.</div>
-            </div>
-          </div>
+      <div style="display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+        <button class="btn btn--secondary" onclick="limpiarSeguimiento()">Limpiar</button>
+        <button class="btn btn--primary" onclick="buscarSolicitudes()">Buscar solicitudes</button>
+      </div>
 
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Empresa</th>
+              <th>Estado</th>
+              <th>Actualización</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody id="productosBody">
+            <tr>
+              <td colspan="5">
+                <div class="empty">Aún no se han consultado solicitudes.</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="detalleModal">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-header-flex">
           <div>
-            <h3 class="section-title" style="font-size:18px;">Historial público</h3>
-            <div class="timeline" id="detalleHistorial"></div>
+            <h2 id="detalleTitulo">Detalle</h2>
+            <p class="muted" id="detalleSubtitulo"></p>
+          </div>
+          <button class="modal-close" onclick="cerrarModal()">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="detail-grid" id="detalleGrid"></div>
+
+        <div style="margin-bottom:16px;">
+          <h3 class="section-title" style="font-size:18px;">Mensaje de seguimiento</h3>
+          <div class="detail-box">
+            <div class="value" id="detalleMensajePublico">Sin mensaje.</div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn btn--secondary" onclick="cerrarModal()">Cerrar</button>
+
+        <div style="margin-bottom:16px;">
+          <h3 class="section-title" style="font-size:18px;">Documentos registrados</h3>
+          <div class="docs-list" id="detalleDocs"></div>
         </div>
+
+        <div>
+          <h3 class="section-title" style="font-size:18px;">Historial</h3>
+          <div class="timeline" id="detalleHistorial"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn--secondary" onclick="cerrarModal()">Cerrar</button>
       </div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
+  <script src="db-helpers-productos.js"></script>
 
   <script>
+    const BUCKET_NAME = 'productos_docs';
+
     const estadoPublicoMap = {
       recibido: 'Solicitud recibida',
       info_incompleta: 'Pendiente de información',
       en_evaluacion: 'En evaluación técnica',
       aprobado_reunion: 'Revisión avanzada',
+      rechazado: 'No seleccionado',
       propuesto_ensayo: 'Seleccionado para ensayo',
+      ensayo_diseño: 'Diseño de ensayo',
       ensayo_campo: 'En ensayo de campo',
-      cerrado: 'Proceso finalizado',
-      rechazado: 'No seleccionado'
+      cerrado: 'Proceso finalizado'
     };
 
-    let empresas = [];
-    let productos = [];
-    let historial = [];
-    let empresaActual = null;
-    let contactoActual = null;
+    let productosConsulta = [];
+    let empresasCache = [];
 
     function escapeHtml(value) {
       const div = document.createElement('div');
@@ -823,171 +786,133 @@
       return d.toLocaleDateString('es-DO', { year: 'numeric', month: '2-digit', day: '2-digit' });
     }
 
-    function showNotice(id, message, isError = false) {
-      const box = document.getElementById(id);
+    function showNotice(message, isError = false) {
+      const box = document.getElementById('mainNotice');
       box.textContent = message;
       box.classList.remove('error');
       if (isError) box.classList.add('error');
       box.style.display = 'block';
       setTimeout(() => {
         box.style.display = 'none';
-      }, 4500);
+      }, 6000);
     }
 
-    function setEmpresaLabel() {
-      document.getElementById('empresaActualLabel').textContent =
-        empresaActual ? 'Empresa actual: ' + empresaActual.nombre : '';
+    function cleanText(value) {
+      return (value || '').trim();
     }
 
-    async function cargarEmpresas() {
-      const select = document.getElementById('empresaLogin');
-      select.innerHTML = '<option value="">Cargando...</option>';
+    function normalizarNombre(value) {
+      return cleanText(value).toLowerCase();
+    }
 
-      const { data, error } = await supabase
-        .from('empresas')
-        .select('*')
-        .eq('activa', true)
-        .order('nombre');
+    async function cargarEmpresasCache() {
+      const res = await DB.empresas.listar({ soloActivas: false });
+      empresasCache = res.data || [];
+    }
 
-      if (error) {
-        console.error(error);
-        select.innerHTML = '<option value="">No se pudieron cargar</option>';
-        showNotice('loginNotice', 'No se pudieron cargar las empresas.', true);
-        return;
+    async function buscarEmpresaPorNombre(nombreEmpresa) {
+      const normalizado = normalizarNombre(nombreEmpresa);
+      if (!normalizado) return null;
+
+      if (!empresasCache.length) {
+        await cargarEmpresasCache();
       }
 
-      empresas = data || [];
-      select.innerHTML = '<option value="">Seleccionar empresa</option>' +
-        empresas.map(emp => `<option value="${emp.id}">${escapeHtml(emp.nombre)}</option>`).join('');
+      return empresasCache.find(e => normalizarNombre(e.nombre) === normalizado) || null;
     }
 
-    function entrarPortal() {
-      const empresaId = document.getElementById('empresaLogin').value;
-      const contacto = document.getElementById('contactoLogin').value.trim();
-      const email = document.getElementById('emailLogin').value.trim();
+    async function obtenerOCrearEmpresa() {
+      const nombreEmpresa = cleanText(document.getElementById('solEmpresa').value);
+      const pais = cleanText(document.getElementById('solPais').value);
+      const contactoNombre = cleanText(document.getElementById('solNombre').value);
+      const contactoEmail = cleanText(document.getElementById('solCorreo').value);
+      const contactoTelefono = cleanText(document.getElementById('solTelefono').value);
+      const tipoProducto = document.getElementById('prodTipo').value;
 
-      if (!empresaId) {
-        showNotice('loginNotice', 'Selecciona una empresa para continuar.', true);
-        return;
+      let empresa = await buscarEmpresaPorNombre(nombreEmpresa);
+
+      if (empresa) {
+        const actualizar = await DB.empresas.actualizar(empresa.id, {
+          pais: pais || empresa.pais || null,
+          contacto_nombre: contactoNombre || empresa.contacto_nombre || null,
+          contacto_email: contactoEmail || empresa.contacto_email || null,
+          contacto_telefono: contactoTelefono || empresa.contacto_telefono || null,
+          tipo_productos: Array.from(new Set([...(empresa.tipo_productos || []), tipoProducto])),
+          activa: true
+        });
+
+        if (actualizar.error) throw actualizar.error;
+        empresa = actualizar.data;
+      } else {
+        const crear = await DB.empresas.crear({
+          nombre: nombreEmpresa,
+          pais: pais || null,
+          contacto_nombre: contactoNombre || null,
+          contacto_email: contactoEmail || null,
+          contacto_telefono: contactoTelefono || null,
+          tipo_productos: [tipoProducto],
+          activa: true,
+          creado_por: contactoNombre || 'Proveedor'
+        });
+
+        if (crear.error) throw crear.error;
+        empresa = crear.data;
       }
 
-      if (!contacto || !email) {
-        showNotice('loginNotice', 'Completa nombre y correo del contacto.', true);
-        return;
-      }
+      const idx = empresasCache.findIndex(e => e.id === empresa.id);
+      if (idx >= 0) empresasCache[idx] = empresa;
+      else empresasCache.push(empresa);
 
-      empresaActual = empresas.find(e => e.id === empresaId) || null;
-      contactoActual = { nombre: contacto, email };
-
-      document.getElementById('loginSection').style.display = 'none';
-      document.getElementById('dashboardSection').classList.add('active');
-      document.getElementById('btnCambiarEmpresa').style.display = 'inline-flex';
-
-      setEmpresaLabel();
-      cargarProductosEmpresa();
+      return empresa;
     }
 
-    document.getElementById('btnCambiarEmpresa').addEventListener('click', () => {
-      empresaActual = null;
-      contactoActual = null;
-      productos = [];
-      historial = [];
-      document.getElementById('dashboardSection').classList.remove('active');
-      document.getElementById('loginSection').style.display = 'flex';
-      document.getElementById('btnCambiarEmpresa').style.display = 'none';
-      document.getElementById('empresaLogin').value = '';
-      document.getElementById('contactoLogin').value = '';
-      document.getElementById('emailLogin').value = '';
-    });
+    async function subirDocumentos(producto, files, solicitanteNombre) {
+      if (!files || !files.length) return;
 
-    async function cargarProductosEmpresa() {
-      if (!empresaActual) return;
+      for (const file of files) {
+        const extension = file.name.includes('.') ? file.name.split('.').pop().toLowerCase() : '';
+        const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+        const path = `${producto.id}/${Date.now()}_${safeName}`;
 
-      const { data, error } = await supabase
-        .from('productos_externos')
-        .select('*')
-        .eq('empresa_id', empresaActual.id)
-        .order('creado_en', { ascending: false });
+        const uploadRes = await window.supabase.storage
+          .from(BUCKET_NAME)
+          .upload(path, file, { upsert: false });
 
-      if (error) {
-        console.error(error);
-        showNotice('mainNotice', 'No se pudieron cargar los productos.', true);
-        return;
+        if (uploadRes.error) throw uploadRes.error;
+
+        const tipo = inferirTipoDocumento(file.name);
+
+        const docRes = await window.supabase
+          .from('documentos_producto')
+          .insert({
+            id: 'doc_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8),
+            producto_id: producto.id,
+            tipo,
+            nombre: file.name,
+            path: path,
+            tamano_kb: Math.round(file.size / 1024),
+            subido_por: solicitanteNombre
+          });
+
+        if (docRes.error) throw docRes.error;
       }
-
-      productos = data || [];
-      renderResumen();
-      renderProductos();
     }
 
-    function renderResumen() {
-      const total = productos.length;
-      const recibidos = productos.filter(p => p.estado === 'recibido').length;
-      const evaluacion = productos.filter(p => ['en_evaluacion', 'aprobado_reunion'].includes(p.estado)).length;
-      const cerrados = productos.filter(p => ['cerrado', 'rechazado', 'propuesto_ensayo', 'ensayo_campo'].includes(p.estado)).length;
-
-      document.getElementById('summaryCards').innerHTML = `
-        <div class="summary-card">
-          <div class="value">${total}</div>
-          <div class="label">Productos enviados</div>
-        </div>
-        <div class="summary-card">
-          <div class="value">${recibidos}</div>
-          <div class="label">Recibidos</div>
-        </div>
-        <div class="summary-card">
-          <div class="value">${evaluacion}</div>
-          <div class="label">En revisión</div>
-        </div>
-        <div class="summary-card">
-          <div class="value">${cerrados}</div>
-          <div class="label">Con decisión / avance</div>
-        </div>
-      `;
-    }
-
-    function renderProductos() {
-      const q = document.getElementById('busqueda').value.trim().toLowerCase();
-      const rows = productos.filter(p => {
-        if (!q) return true;
-        const bag = [
-          p.nombre_comercial,
-          p.tipo_producto,
-          p.problema_objetivo,
-          p.cultivos_objetivo
-        ].join(' ').toLowerCase();
-        return bag.includes(q);
-      });
-
-      const tbody = document.getElementById('productosBody');
-
-      if (!rows.length) {
-        tbody.innerHTML = `
-          <tr>
-            <td colspan="6">
-              <div class="empty">No hay productos registrados para esta empresa.</div>
-            </td>
-          </tr>
-        `;
-        return;
-      }
-
-      tbody.innerHTML = rows.map(p => `
-        <tr>
-          <td>
-            <strong>${escapeHtml(p.nombre_comercial || '-')}</strong><br>
-            <span class="muted">${escapeHtml(p.problema_objetivo || '-')}</span>
-          </td>
-          <td>${escapeHtml(p.tipo_producto || '-')}</td>
-          <td>${escapeHtml(p.cultivos_objetivo || '-')}</td>
-          <td><span class="status status-${p.estado || 'recibido'}">${escapeHtml(p.estado_publico || estadoPublicoMap[p.estado] || 'En proceso')}</span></td>
-          <td>${formatDate(p.actualizado_en || p.creado_en)}</td>
-          <td><button class="btn btn--secondary btn--sm" onclick="verDetalle('${p.id}')">Ver</button></td>
-        </tr>
-      `).join('');
+    function inferirTipoDocumento(nombre) {
+      const n = (nombre || '').toLowerCase();
+      if (n.includes('ficha')) return 'ficha_tecnica';
+      if (n.includes('ensayo')) return 'ensayo_previo';
+      if (n.includes('registro')) return 'registro';
+      if (n.includes('present')) return 'presentacion';
+      return 'otro';
     }
 
     function limpiarFormulario() {
+      document.getElementById('solNombre').value = '';
+      document.getElementById('solCorreo').value = '';
+      document.getElementById('solTelefono').value = '';
+      document.getElementById('solEmpresa').value = '';
+      document.getElementById('solPais').value = '';
       document.getElementById('prodNombre').value = '';
       document.getElementById('prodIngrediente').value = '';
       document.getElementById('prodTipo').value = 'fungicida';
@@ -995,94 +920,188 @@
       document.getElementById('prodCultivo').value = 'banano';
       document.getElementById('prodProblema').value = '';
       document.getElementById('prodPais').value = '';
-      document.getElementById('prodRegistro').value = 'no';
+      document.getElementById('prodRegistroRD').value = 'no';
+      document.getElementById('prodRegistroOtros').value = '';
       document.getElementById('prodContacto').value = '';
-      document.getElementById('prodDocs').value = '';
       document.getElementById('prodMensaje').value = '';
+      document.getElementById('prodDocs').value = '';
     }
 
-    async function guardarProductoProveedor() {
-      if (!empresaActual || !contactoActual) {
-        showNotice('mainNotice', 'Debes seleccionar una empresa antes de registrar productos.', true);
-        return;
-      }
+    async function enviarSolicitud() {
+      const solicitanteNombre = cleanText(document.getElementById('solNombre').value);
+      const solicitanteCorreo = cleanText(document.getElementById('solCorreo').value);
+      const solicitanteTelefono = cleanText(document.getElementById('solTelefono').value);
+      const empresaNombre = cleanText(document.getElementById('solEmpresa').value);
 
-      const nombre = document.getElementById('prodNombre').value.trim();
-      const ingrediente = document.getElementById('prodIngrediente').value.trim();
-      const tipo = document.getElementById('prodTipo').value;
-      const modo = document.getElementById('prodModo').value.trim();
+      const nombreComercial = cleanText(document.getElementById('prodNombre').value);
+      const ingredienteActivo = cleanText(document.getElementById('prodIngrediente').value);
+      const tipoProducto = document.getElementById('prodTipo').value;
+      const modoAccion = cleanText(document.getElementById('prodModo').value);
       const cultivo = document.getElementById('prodCultivo').value;
-      const problema = document.getElementById('prodProblema').value.trim();
-      const pais = document.getElementById('prodPais').value.trim();
-      const registro = document.getElementById('prodRegistro').value;
-      const contacto = document.getElementById('prodContacto').value.trim();
-      const docs = document.getElementById('prodDocs').value.trim();
-      const mensaje = document.getElementById('prodMensaje').value.trim();
+      const problema = cleanText(document.getElementById('prodProblema').value);
+      const paisProducto = cleanText(document.getElementById('prodPais').value);
+      const registroRD = document.getElementById('prodRegistroRD').value;
+      const registroOtros = cleanText(document.getElementById('prodRegistroOtros').value);
+      const contactoTecnico = cleanText(document.getElementById('prodContacto').value);
+      const mensaje = cleanText(document.getElementById('prodMensaje').value);
+      const files = Array.from(document.getElementById('prodDocs').files || []);
 
-      if (!nombre || !tipo || !cultivo || !problema || !contacto) {
-        showNotice('mainNotice', 'Completa los campos obligatorios del formulario.', true);
+      if (!solicitanteNombre || !solicitanteCorreo || !empresaNombre) {
+        showNotice('Complete nombre, correo y empresa del solicitante.', true);
         return;
       }
 
-      const notas = [
-        'Contacto proveedor: ' + contactoActual.nombre + ' · ' + contactoActual.email,
-        'Contacto técnico: ' + contacto,
-        docs ? 'Documentación: ' + docs : '',
-        mensaje ? 'Mensaje proveedor: ' + mensaje : ''
-      ].filter(Boolean).join('\n');
+      if (!nombreComercial || !tipoProducto || !cultivo || !problema || !contactoTecnico) {
+        showNotice('Complete los campos obligatorios del producto.', true);
+        return;
+      }
 
       try {
-        const id = 'prod_' + Date.now();
+        const empresa = await obtenerOCrearEmpresa();
 
-        const { data, error } = await supabase
-          .from('productos_externos')
-          .insert({
-            id,
-            empresa_id: empresaActual.id,
-            nombre_comercial: nombre,
-            ingrediente_activo: ingrediente || null,
-            tipo_producto: tipo,
-            modo_accion: modo || null,
-            cultivos_objetivo: cultivo,
-            problema_objetivo: problema,
-            pais_origen: pais || null,
-            registro_rd: registro,
-            estado: 'recibido',
-            estado_publico: 'Solicitud recibida',
-            mensaje_publico: 'Tu producto fue recibido y está pendiente de revisión inicial.',
-            notas_internas: notas,
-            creado_por: contactoActual.nombre
-          })
-          .select()
-          .single();
+        const notasInternas = [
+          'Solicitud enviada desde portal proveedor.',
+          'Solicitante: ' + solicitanteNombre,
+          'Correo: ' + solicitanteCorreo,
+          solicitanteTelefono ? 'Teléfono: ' + solicitanteTelefono : '',
+          mensaje ? 'Mensaje del solicitante: ' + mensaje : ''
+        ].filter(Boolean).join('\n');
 
-        if (error) throw error;
+        const productoRes = await DB.productos_pipeline.registrarProductoConHistorial({
+          empresa_id: empresa.id,
+          nombre_comercial: nombreComercial,
+          ingrediente_activo: ingredienteActivo || null,
+          tipo_producto: tipoProducto,
+          modo_accion: modoAccion || null,
+          cultivos_objetivo: cultivo,
+          problema_objetivo: problema,
+          pais_origen: paisProducto || null,
+          registro_rd: registroRD,
+          registro_otros: registroOtros || null,
+          contacto: contactoTecnico,
+          estado: 'recibido',
+          estado_publico: 'Solicitud recibida',
+          mensaje_publico: 'Su producto ha sido registrado. Será evaluado próximamente.',
+          notas_internas: notasInternas,
+          creado_por: solicitanteNombre
+        });
 
-        await supabase
-          .from('historial_producto')
-          .insert({
-            id: 'hist_' + Date.now(),
-            producto_id: data.id,
-            accion: 'Registro de proveedor',
-            detalle: 'Producto registrado por el proveedor en el portal.',
-            realizado_por: contactoActual.nombre
-          });
+        if (productoRes.error) throw productoRes.error;
+
+        const producto = productoRes.data;
+
+        if (files.length) {
+          await subirDocumentos(producto, files, solicitanteNombre);
+
+          await DB.historial_producto.registrar(
+            producto.id,
+            'Documentos cargados',
+            'Se adjuntaron ' + files.length + ' documento(s) desde el portal proveedor.',
+            solicitanteNombre
+          );
+        }
+
+        document.getElementById('trackCorreo').value = solicitanteCorreo;
+        document.getElementById('trackEmpresa').value = empresaNombre;
 
         limpiarFormulario();
-        await cargarProductosEmpresa();
-        showNotice('mainNotice', 'Producto enviado correctamente.');
+        showNotice('Solicitud enviada correctamente. Puede consultar el seguimiento en la sección inferior.');
+        await buscarSolicitudes();
       } catch (err) {
         console.error(err);
-        showNotice('mainNotice', 'No se pudo guardar el producto: ' + (err.message || err), true);
+        showNotice('No se pudo registrar la solicitud: ' + (err.message || err), true);
       }
+    }
+
+    async function buscarSolicitudes() {
+      const correo = cleanText(document.getElementById('trackCorreo').value);
+      const empresaNombre = cleanText(document.getElementById('trackEmpresa').value);
+
+      if (!correo || !empresaNombre) {
+        showNotice('Para consultar, escriba el correo y la empresa.', true);
+        return;
+      }
+
+      try {
+        if (!empresasCache.length) {
+          await cargarEmpresasCache();
+        }
+
+        const empresa = empresasCache.find(e =>
+          normalizarNombre(e.nombre) === normalizarNombre(empresaNombre) &&
+          normalizarNombre(e.contacto_email || '') === normalizarNombre(correo)
+        ) || empresasCache.find(e =>
+          normalizarNombre(e.nombre) === normalizarNombre(empresaNombre)
+        );
+
+        if (!empresa) {
+          productosConsulta = [];
+          renderProductosConsulta();
+          showNotice('No se encontró una empresa con esos datos.', true);
+          return;
+        }
+
+        const res = await DB.productos_externos.listarPorEmpresa(empresa.id);
+        if (res.error) throw res.error;
+
+        productosConsulta = (res.data || []).filter(p => {
+          const bolsa = (p.notas_internas || '').toLowerCase();
+          return bolsa.includes(correo.toLowerCase()) || true;
+        });
+
+        renderProductosConsulta();
+      } catch (err) {
+        console.error(err);
+        showNotice('No se pudieron consultar las solicitudes: ' + (err.message || err), true);
+      }
+    }
+
+    function limpiarSeguimiento() {
+      document.getElementById('trackCorreo').value = '';
+      document.getElementById('trackEmpresa').value = '';
+      productosConsulta = [];
+      renderProductosConsulta();
+    }
+
+    function renderProductosConsulta() {
+      const tbody = document.getElementById('productosBody');
+
+      if (!productosConsulta.length) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="5">
+              <div class="empty">No hay solicitudes para mostrar.</div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = productosConsulta.map(p => `
+        <tr>
+          <td>
+            <strong>${escapeHtml(p.nombre_comercial || '-')}</strong><br>
+            <span class="muted">${escapeHtml(p.problema_objetivo || '-')}</span>
+          </td>
+          <td>${escapeHtml(obtenerNombreEmpresa(p.empresa_id))}</td>
+          <td><span class="status status-${p.estado || 'recibido'}">${escapeHtml(p.estado_publico || estadoPublicoMap[p.estado] || 'En proceso')}</span></td>
+          <td>${formatDate(p.actualizado_en || p.creado_en)}</td>
+          <td><button class="btn btn--secondary btn--sm" onclick="verDetalle('${p.id}')">Ver</button></td>
+        </tr>
+      `).join('');
+    }
+
+    function obtenerNombreEmpresa(empresaId) {
+      const empresa = empresasCache.find(e => e.id === empresaId);
+      return empresa ? empresa.nombre : 'Empresa';
     }
 
     async function verDetalle(productoId) {
-      const producto = productos.find(p => p.id === productoId);
+      const producto = productosConsulta.find(p => p.id === productoId);
       if (!producto) return;
 
       document.getElementById('detalleTitulo').textContent = producto.nombre_comercial || 'Producto';
-      document.getElementById('detalleSubtitulo').textContent = empresaActual ? empresaActual.nombre : '';
+      document.getElementById('detalleSubtitulo').textContent = obtenerNombreEmpresa(producto.empresa_id);
 
       document.getElementById('detalleGrid').innerHTML = `
         <div class="detail-box">
@@ -1106,11 +1125,11 @@
           <div class="value">${escapeHtml(producto.problema_objetivo || '-')}</div>
         </div>
         <div class="detail-box">
-          <div class="label">Estado público</div>
+          <div class="label">Estado</div>
           <div class="value"><span class="status status-${producto.estado || 'recibido'}">${escapeHtml(producto.estado_publico || estadoPublicoMap[producto.estado] || 'En proceso')}</span></div>
         </div>
         <div class="detail-box">
-          <div class="label">Registro en RD</div>
+          <div class="label">Registro RD</div>
           <div class="value">${escapeHtml(producto.registro_rd || '-')}</div>
         </div>
         <div class="detail-box">
@@ -1122,26 +1141,54 @@
       document.getElementById('detalleMensajePublico').textContent =
         producto.mensaje_publico || 'Aún no hay un mensaje público disponible para este producto.';
 
-      await cargarHistorialPublico(productoId);
+      await cargarDocumentos(productoId);
+      await cargarHistorial(productoId);
+
       document.getElementById('detalleModal').classList.add('active');
     }
 
-    async function cargarHistorialPublico(productoId) {
+    async function cargarDocumentos(productoId) {
+      const box = document.getElementById('detalleDocs');
+
+      try {
+        const res = await window.supabase
+          .from('documentos_producto')
+          .select('*')
+          .eq('producto_id', productoId)
+          .order('subido_en', { ascending: false });
+
+        if (res.error) throw res.error;
+
+        const docs = res.data || [];
+
+        if (!docs.length) {
+          box.innerHTML = '<div class="empty">No hay documentos registrados.</div>';
+          return;
+        }
+
+        box.innerHTML = docs.map(doc => `
+          <div class="doc-item">
+            <strong>${escapeHtml(doc.nombre)}</strong>
+            <small>Tipo: ${escapeHtml(doc.tipo || 'otro')} · ${doc.tamano_kb || 0} KB</small>
+          </div>
+        `).join('');
+      } catch (err) {
+        console.error(err);
+        box.innerHTML = '<div class="empty">No se pudieron cargar los documentos.</div>';
+      }
+    }
+
+    async function cargarHistorial(productoId) {
       const box = document.getElementById('detalleHistorial');
 
       try {
-        const { data, error } = await supabase
-          .from('historial_producto')
-          .select('*')
-          .eq('producto_id', productoId)
-          .order('fecha', { ascending: false });
+        const res = await DB.historial_producto.listarPorProducto(productoId);
+        if (res.error) throw res.error;
 
-        if (error) throw error;
-
-        historial = data || [];
+        const historial = res.data || [];
 
         if (!historial.length) {
-          box.innerHTML = `<div class="empty">No hay historial visible todavía.</div>`;
+          box.innerHTML = '<div class="empty">No hay historial disponible.</div>';
           return;
         }
 
@@ -1154,7 +1201,7 @@
         `).join('');
       } catch (err) {
         console.error(err);
-        box.innerHTML = `<div class="empty">No se pudo cargar el historial.</div>`;
+        box.innerHTML = '<div class="empty">No se pudo cargar el historial.</div>';
       }
     }
 
@@ -1162,17 +1209,18 @@
       document.getElementById('detalleModal').classList.remove('active');
     }
 
-    document.getElementById('detalleModal').addEventListener('click', (e) => {
+    document.getElementById('detalleModal').addEventListener('click', function (e) {
       if (e.target.id === 'detalleModal') cerrarModal();
     });
 
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') cerrarModal();
     });
 
-    document.addEventListener('DOMContentLoaded', () => {
-      cargarEmpresas();
+    document.addEventListener('DOMContentLoaded', function () {
+      cargarEmpresasCache();
     });
   </script>
 </body>
 </html>
+
