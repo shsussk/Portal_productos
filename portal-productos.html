@@ -6,35 +6,32 @@
   <title>Pipeline de Productos Externos · I+D</title>
   <style>
     :root {
-      --color-cream-50: rgba(252,252,249,1);
-      --color-cream-100: rgba(255,255,253,1);
-      --color-gray-200: rgba(245,245,245,1);
-      --color-gray-300: rgba(167,169,169,1);
-      --color-gray-400: rgba(119,124,124,1);
-      --color-slate-500: rgba(98,108,113,1);
-      --color-brown-600: rgba(94,82,64,1);
-      --color-charcoal-700: rgba(31,33,33,1);
-      --color-charcoal-800: rgba(38,40,40,1);
-      --color-slate-900: rgba(19,52,59,1);
-      --color-teal-300: rgba(50,184,198,1);
-      --color-teal-400: rgba(45,166,178,1);
-      --color-teal-500: rgba(33,128,141,1);
-      --color-teal-600: rgba(29,116,128,1);
-      --color-teal-700: rgba(26,104,115,1);
-      --color-red-400: rgba(255,84,89,1);
-      --color-red-500: rgba(192,21,47,1);
-      --color-orange-400: rgba(230,129,97,1);
-      --color-orange-500: rgba(168,75,47,1);
-      --color-brown-600-rgb: 94,82,64;
-      --color-teal-500-rgb: 33,128,141;
-      --color-slate-900-rgb: 19,52,59;
-      --color-slate-500-rgb: 98,108,113;
-      --color-red-500-rgb: 192,21,47;
-      --color-orange-500-rgb: 168,75,47;
-      --color-success-rgb: 33,128,141;
-      --color-error-rgb: 192,21,47;
-      --color-warning-rgb: 168,75,47;
-      --color-info-rgb: 98,108,113;
+      --color-cream-50: rgba(252, 252, 249, 1);
+      --color-cream-100: rgba(255, 255, 253, 1);
+      --color-gray-200: rgba(245, 245, 245, 1);
+      --color-gray-300: rgba(167, 169, 169, 1);
+      --color-gray-400: rgba(119, 124, 124, 1);
+      --color-slate-500: rgba(98, 108, 113, 1);
+      --color-brown-600: rgba(94, 82, 64, 1);
+      --color-charcoal-700: rgba(31, 33, 33, 1);
+      --color-charcoal-800: rgba(38, 40, 40, 1);
+      --color-slate-900: rgba(19, 52, 59, 1);
+      --color-teal-300: rgba(50, 184, 198, 1);
+      --color-teal-400: rgba(45, 166, 178, 1);
+      --color-teal-500: rgba(33, 128, 141, 1);
+      --color-teal-600: rgba(29, 116, 128, 1);
+      --color-teal-700: rgba(26, 104, 115, 1);
+      --color-red-400: rgba(255, 84, 89, 1);
+      --color-red-500: rgba(192, 21, 47, 1);
+      --color-orange-400: rgba(230, 129, 97, 1);
+      --color-orange-500: rgba(168, 75, 47, 1);
+
+      --color-brown-600-rgb: 94, 82, 64;
+      --color-teal-500-rgb: 33, 128, 141;
+      --color-info-rgb: 98, 108, 113;
+      --color-success-rgb: 33, 128, 141;
+      --color-warning-rgb: 168, 75, 47;
+      --color-error-rgb: 192, 21, 47;
 
       --color-background: var(--color-cream-50);
       --color-surface: var(--color-cream-100);
@@ -42,626 +39,1749 @@
       --color-text-secondary: var(--color-slate-500);
       --color-primary: var(--color-teal-500);
       --color-primary-hover: var(--color-teal-600);
-      --color-primary-active: var(--color-teal-700);
-      --color-secondary: rgba(var(--color-brown-600-rgb),0.12);
-      --color-secondary-hover: rgba(var(--color-brown-600-rgb),0.2);
-      --color-border: rgba(var(--color-brown-600-rgb),0.2);
-      --color-card-border: rgba(var(--color-brown-600-rgb),0.12);
+      --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+      --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+      --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+      --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
       --color-error: var(--color-red-500);
       --color-success: var(--color-teal-500);
       --color-warning: var(--color-orange-500);
       --color-info: var(--color-slate-500);
 
-      --font-family-base: "FKGroteskNeue","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      --font-size-xs:11px;--font-size-sm:12px;--font-size-base:14px;
-      --font-size-lg:16px;--font-size-xl:18px;--font-size-2xl:20px;--font-size-3xl:24px;--font-size-4xl:30px;
-      --font-weight-medium:500;--font-weight-semibold:550;--font-weight-bold:600;
-      --line-height-tight:1.2;--line-height-normal:1.5;
-      --space-4:4px;--space-6:6px;--space-8:8px;--space-10:10px;
-      --space-12:12px;--space-16:16px;--space-20:20px;--space-24:24px;--space-32:32px;
-      --radius-sm:6px;--radius-base:8px;--radius-md:10px;--radius-lg:12px;--radius-full:9999px;
-      --shadow-sm:0 1px 3px rgba(0,0,0,0.04),0 1px 2px rgba(0,0,0,0.02);
-      --shadow-md:0 4px 6px -1px rgba(0,0,0,0.04),0 2px 4px -1px rgba(0,0,0,0.02);
-      --shadow-lg:0 10px 15px -3px rgba(0,0,0,0.04),0 4px 6px -2px rgba(0,0,0,0.02);
-      --duration-fast:150ms;--duration-normal:250ms;
-      --ease-standard:cubic-bezier(0.16,1,0.3,1);
+      --font-family-base: "FKGroteskNeue", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-size-xs: 11px;
+      --font-size-sm: 12px;
+      --font-size-base: 14px;
+      --font-size-lg: 16px;
+      --font-size-xl: 18px;
+      --font-size-2xl: 20px;
+      --font-size-3xl: 24px;
+      --font-size-4xl: 30px;
+
+      --font-weight-medium: 500;
+      --font-weight-semibold: 550;
+      --font-weight-bold: 600;
+
+      --line-height-tight: 1.2;
+      --line-height-normal: 1.5;
+
+      --space-4: 4px;
+      --space-6: 6px;
+      --space-8: 8px;
+      --space-10: 10px;
+      --space-12: 12px;
+      --space-16: 16px;
+      --space-20: 20px;
+      --space-24: 24px;
+      --space-32: 32px;
+
+      --radius-sm: 6px;
+      --radius-base: 8px;
+      --radius-md: 10px;
+      --radius-lg: 12px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+
+      --duration-fast: 150ms;
+      --duration-normal: 250ms;
+      --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
     }
-    @media(prefers-color-scheme:dark){:root{
-      --color-background:var(--color-charcoal-700);
-      --color-surface:var(--color-charcoal-800);
-      --color-text:var(--color-gray-200);
-      --color-text-secondary:rgba(167,169,169,0.7);
-      --color-primary:var(--color-teal-300);
-      --color-primary-hover:var(--color-teal-400);
-      --color-secondary:rgba(119,124,124,0.15);
-      --color-secondary-hover:rgba(119,124,124,0.25);
-      --color-border:rgba(119,124,124,0.3);
-      --color-card-border:rgba(119,124,124,0.2);
-    }}
-    *,*::before,*::after{box-sizing:border-box}
-    html{font-size:var(--font-size-base);font-family:var(--font-family-base);line-height:var(--line-height-normal);color:var(--color-text);background:var(--color-background);-webkit-font-smoothing:antialiased}
-    body{margin:0;padding:0}
-    h1,h2,h3,h4{margin:0;font-weight:var(--font-weight-semibold);line-height:var(--line-height-tight);color:var(--color-text)}
 
-    .app-header{padding:var(--space-16) var(--space-24);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-12);border-bottom:1px solid var(--color-border)}
-    .app-header h1{font-size:var(--font-size-2xl);display:flex;align-items:center;gap:var(--space-8)}
-    .header-actions{display:flex;gap:var(--space-8);align-items:center;flex-wrap:wrap}
-
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:var(--space-8) var(--space-16);
-      border-radius:var(--radius-base);font-size:var(--font-size-base);font-weight:500;cursor:pointer;
-      border:none;transition:all var(--duration-normal) var(--ease-standard);text-decoration:none;gap:var(--space-6)}
-    .btn--primary{background:var(--color-primary);color:var(--color-cream-50)}
-    .btn--primary:hover{background:var(--color-primary-hover)}
-    .btn--secondary{background:var(--color-secondary);color:var(--color-text)}
-    .btn--secondary:hover{background:var(--color-secondary-hover)}
-    .btn--danger{background:rgba(var(--color-error-rgb),0.12);color:var(--color-error)}
-    .btn--danger:hover{background:rgba(var(--color-error-rgb),0.2)}
-    .btn--success{background:rgba(var(--color-success-rgb),0.12);color:var(--color-success)}
-    .btn--warning{background:rgba(var(--color-warning-rgb),0.12);color:var(--color-warning)}
-    .btn--sm{padding:var(--space-4) var(--space-12);font-size:var(--font-size-sm);border-radius:var(--radius-sm)}
-
-    .kpi-bar{display:flex;gap:var(--space-12);padding:var(--space-16) var(--space-24);overflow-x:auto;flex-wrap:wrap}
-    .kpi-card{background:var(--color-surface);border:1px solid var(--color-card-border);border-radius:var(--radius-lg);padding:var(--space-12) var(--space-16);min-width:140px;flex:1}
-    .kpi-card .kpi-value{font-size:var(--font-size-3xl);font-weight:var(--font-weight-bold);color:var(--color-primary)}
-    .kpi-card .kpi-label{font-size:var(--font-size-sm);color:var(--color-text-secondary);margin-top:var(--space-4)}
-
-    .filters-bar{display:flex;gap:var(--space-12);padding:0 var(--space-24) var(--space-16);flex-wrap:wrap;align-items:flex-end}
-    .filter-group{display:flex;flex-direction:column;gap:var(--space-4)}
-    .filter-group label{font-size:var(--font-size-xs);font-weight:var(--font-weight-medium);color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.05em}
-    .filter-group select,.filter-group input{padding:var(--space-6) var(--space-10);border-radius:var(--radius-base);border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm);min-width:140px}
-
-    .view-toggle{display:flex;gap:2px;background:var(--color-secondary);border-radius:var(--radius-base);padding:2px}
-    .view-toggle button{padding:var(--space-6) var(--space-12);border:none;background:transparent;border-radius:var(--radius-sm);cursor:pointer;font-size:var(--font-size-sm);color:var(--color-text-secondary);font-weight:var(--font-weight-medium)}
-    .view-toggle button.active{background:var(--color-surface);color:var(--color-text);box-shadow:var(--shadow-sm)}
-
-    .kanban-container{display:flex;gap:var(--space-12);padding:0 var(--space-24) var(--space-24);overflow-x:auto;min-height:60vh}
-    .kanban-column{min-width:260px;max-width:300px;flex:1;display:flex;flex-direction:column;gap:var(--space-8)}
-    .kanban-column-header{padding:var(--space-10) var(--space-12);border-radius:var(--radius-lg) var(--radius-lg) 0 0;font-weight:var(--font-weight-semibold);font-size:var(--font-size-sm);display:flex;align-items:center;justify-content:space-between}
-    .kanban-column-body{flex:1;display:flex;flex-direction:column;gap:var(--space-8);padding:var(--space-8);background:var(--color-secondary);border-radius:0 0 var(--radius-lg) var(--radius-lg);min-height:100px;transition:background var(--duration-fast)}
-    .kanban-column-body.drag-over{background:rgba(var(--color-teal-500-rgb),0.1)}
-    .col-recibido .kanban-column-header{background:rgba(var(--color-info-rgb),0.15);color:var(--color-info)}
-    .col-info-incompleta .kanban-column-header{background:rgba(var(--color-warning-rgb),0.15);color:var(--color-warning)}
-    .col-en-evaluacion .kanban-column-header{background:rgba(59,130,246,0.12);color:rgb(59,130,246)}
-    .col-aprobado-reunion .kanban-column-header{background:rgba(var(--color-success-rgb),0.15);color:var(--color-success)}
-    .col-propuesto-ensayo .kanban-column-header{background:rgba(147,51,234,0.12);color:rgb(147,51,234)}
-    .col-ensayo-campo .kanban-column-header{background:rgba(var(--color-teal-500-rgb),0.18);color:var(--color-primary)}
-    .col-cerrado .kanban-column-header{background:rgba(var(--color-success-rgb),0.2);color:var(--color-success)}
-    .col-rechazado .kanban-column-header{background:rgba(var(--color-error-rgb),0.12);color:var(--color-error)}
-    .col-count{background:rgba(0,0,0,0.1);border-radius:var(--radius-full);padding:2px 8px;font-size:var(--font-size-xs)}
-
-    .product-card{background:var(--color-surface);border:1px solid var(--color-card-border);border-radius:var(--radius-md);padding:var(--space-12);cursor:grab;transition:all var(--duration-fast);position:relative}
-    .product-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
-    .product-card.dragging{opacity:0.5;transform:rotate(2deg)}
-    .product-card-name{font-weight:var(--font-weight-semibold);font-size:var(--font-size-base);margin-bottom:var(--space-4)}
-    .product-card-empresa{font-size:var(--font-size-xs);color:var(--color-text-secondary)}
-    .product-card-meta{display:flex;gap:var(--space-6);margin-top:var(--space-8);flex-wrap:wrap}
-    .tag{display:inline-flex;align-items:center;padding:2px 8px;border-radius:var(--radius-full);font-size:var(--font-size-xs);font-weight:var(--font-weight-medium)}
-    .tag-tipo{background:rgba(59,130,246,0.1);color:rgb(59,130,246)}
-    .tag-cultivo{background:rgba(34,197,94,0.1);color:rgb(34,197,94)}
-    .tag-score{font-weight:var(--font-weight-bold);font-size:var(--font-size-sm)}
-    .tag-score.high{background:rgba(var(--color-success-rgb),0.15);color:var(--color-success)}
-    .tag-score.medium{background:rgba(59,130,246,0.12);color:rgb(59,130,246)}
-    .tag-score.low{background:rgba(var(--color-warning-rgb),0.12);color:var(--color-warning)}
-    .tag-score.none{background:rgba(var(--color-error-rgb),0.12);color:var(--color-error)}
-
-    .table-container{padding:0 var(--space-24) var(--space-24);display:none}
-    .table-container.active{display:block}
-    .data-table{width:100%;border-collapse:collapse;background:var(--color-surface);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-card-border)}
-    .data-table th{background:var(--color-secondary);padding:var(--space-10) var(--space-12);text-align:left;font-size:var(--font-size-xs);text-transform:uppercase;letter-spacing:0.05em;color:var(--color-text-secondary);font-weight:var(--font-weight-semibold)}
-    .data-table td{padding:var(--space-10) var(--space-12);border-bottom:1px solid var(--color-card-border);font-size:var(--font-size-sm)}
-    .data-table tr:hover td{background:var(--color-secondary)}
-    .data-table tr{cursor:pointer}
-
-    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;padding:var(--space-20);overflow-y:auto}
-    .modal-overlay.active{display:flex;align-items:flex-start;justify-content:center}
-    .modal{background:var(--color-surface);border-radius:var(--radius-lg);max-width:900px;width:100%;box-shadow:var(--shadow-lg);margin:40px auto}
-    .modal-header{display:flex;justify-content:space-between;align-items:center;padding:var(--space-16) var(--space-20);border-bottom:1px solid var(--color-border)}
-    .modal-header h2{font-size:var(--font-size-xl)}
-    .modal-close{background:none;border:none;font-size:var(--font-size-xl);cursor:pointer;color:var(--color-text-secondary);padding:var(--space-4)}
-    .modal-body{padding:var(--space-20)}
-    .modal-footer{padding:var(--space-12) var(--space-20);border-top:1px solid var(--color-border);display:flex;justify-content:flex-end;gap:var(--space-8)}
-
-    .tabs{display:flex;gap:0;border-bottom:2px solid var(--color-border);margin-bottom:var(--space-16)}
-    .tab-btn{padding:var(--space-10) var(--space-16);border:none;background:none;cursor:pointer;font-size:var(--font-size-sm);font-weight:var(--font-weight-medium);color:var(--color-text-secondary);border-bottom:2px solid transparent;margin-bottom:-2px}
-    .tab-btn.active{color:var(--color-primary);border-bottom-color:var(--color-primary)}
-    .tab-panel{display:none}
-    .tab-panel.active{display:block}
-
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-12)}
-    .form-group{margin-bottom:var(--space-12)}
-    .form-group label{display:block;font-size:var(--font-size-sm);font-weight:var(--font-weight-medium);color:var(--color-text-secondary);margin-bottom:var(--space-4)}
-    .form-group input,.form-group select,.form-group textarea{width:100%;padding:var(--space-8) var(--space-12);border-radius:var(--radius-base);border:1px solid var(--color-border);background:var(--color-background);color:var(--color-text);font-size:var(--font-size-base);font-family:inherit}
-    .form-group textarea{min-height:70px;resize:vertical}
-    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:2px solid var(--color-primary);border-color:var(--color-primary)}
-
-    .score-grid{display:grid;grid-template-columns:1fr auto;gap:var(--space-8) var(--space-16);align-items:center}
-    .score-label{font-size:var(--font-size-sm);color:var(--color-text)}
-    .star-rating{display:flex;gap:2px}
-    .star-rating button{background:none;border:none;font-size:20px;cursor:pointer;padding:0 2px;opacity:0.3}
-    .star-rating button.filled{opacity:1}
-
-    .score-result{margin-top:var(--space-16);padding:var(--space-16);border-radius:var(--radius-md);text-align:center}
-    .score-number{font-size:var(--font-size-4xl);font-weight:var(--font-weight-bold)}
-    .score-category{font-size:var(--font-size-lg);font-weight:var(--font-weight-semibold);margin-top:var(--space-4)}
-
-    .timeline{position:relative;padding-left:24px}
-    .timeline::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--color-border)}
-    .timeline-item{position:relative;margin-bottom:var(--space-16);padding-left:var(--space-12)}
-    .timeline-item::before{content:'';position:absolute;left:-20px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--color-primary);border:2px solid var(--color-surface)}
-    .timeline-date{font-size:var(--font-size-xs);color:var(--color-text-secondary)}
-    .timeline-text{font-size:var(--font-size-sm);margin-top:var(--space-4)}
-
-    .reunion-card{border:1px solid var(--color-card-border);border-radius:var(--radius-md);padding:var(--space-12);margin-bottom:var(--space-8)}
-    .reunion-card h4{font-size:var(--font-size-sm);margin-bottom:var(--space-4)}
-    .reunion-card p{font-size:var(--font-size-sm);color:var(--color-text-secondary);margin:0}
-
-    .empty-state{text-align:center;padding:var(--space-32);color:var(--color-text-secondary);font-size:var(--font-size-sm)}
-
-    @media(max-width:900px){
-      .kanban-container{flex-direction:column}
-      .kanban-column{max-width:100%;min-width:100%}
-      .form-row{grid-template-columns:1fr}
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-background: var(--color-charcoal-700);
+        --color-surface: var(--color-charcoal-800);
+        --color-text: var(--color-gray-200);
+        --color-text-secondary: rgba(167, 169, 169, 0.7);
+        --color-primary: var(--color-teal-300);
+        --color-primary-hover: var(--color-teal-400);
+        --color-secondary: rgba(119, 124, 124, 0.15);
+        --color-secondary-hover: rgba(119, 124, 124, 0.25);
+        --color-border: rgba(119, 124, 124, 0.3);
+        --color-card-border: rgba(119, 124, 124, 0.2);
+      }
     }
-    @font-face{font-family:'FKGroteskNeue';src:url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2')}
+
+    * { box-sizing: border-box; }
+    html {
+      font-size: var(--font-size-base);
+      font-family: var(--font-family-base);
+      line-height: var(--line-height-normal);
+      color: var(--color-text);
+      background: var(--color-background);
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--color-background);
+      color: var(--color-text);
+    }
+    h1, h2, h3, h4 {
+      margin: 0;
+      font-weight: var(--font-weight-semibold);
+      line-height: var(--line-height-tight);
+      color: var(--color-text);
+    }
+
+    .app-header {
+      padding: var(--space-16) var(--space-24);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-12);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--color-background);
+    }
+    .app-header h1 {
+      font-size: var(--font-size-2xl);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+    }
+    .header-actions {
+      display: flex;
+      gap: var(--space-8);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-8) var(--space-16);
+      border-radius: var(--radius-base);
+      font-size: var(--font-size-base);
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all var(--duration-normal) var(--ease-standard);
+      text-decoration: none;
+      gap: var(--space-6);
+    }
+    .btn--primary { background: var(--color-primary); color: var(--color-cream-50); }
+    .btn--primary:hover { background: var(--color-primary-hover); }
+    .btn--secondary { background: var(--color-secondary); color: var(--color-text); }
+    .btn--secondary:hover { background: var(--color-secondary-hover); }
+    .btn--danger { background: rgba(var(--color-error-rgb), 0.12); color: var(--color-error); }
+    .btn--danger:hover { background: rgba(var(--color-error-rgb), 0.2); }
+    .btn--success { background: rgba(var(--color-success-rgb), 0.12); color: var(--color-success); }
+    .btn--warning { background: rgba(var(--color-warning-rgb), 0.12); color: var(--color-warning); }
+    .btn--sm {
+      padding: var(--space-4) var(--space-12);
+      font-size: var(--font-size-sm);
+      border-radius: var(--radius-sm);
+    }
+
+    .kpi-bar {
+      display: flex;
+      gap: var(--space-12);
+      padding: var(--space-16) var(--space-24);
+      overflow-x: auto;
+      flex-wrap: wrap;
+    }
+    .kpi-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-card-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-12) var(--space-16);
+      min-width: 150px;
+      flex: 1;
+      box-shadow: var(--shadow-sm);
+    }
+    .kpi-card .kpi-value {
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary);
+    }
+    .kpi-card .kpi-label {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+      margin-top: var(--space-4);
+    }
+
+    .filters-bar {
+      display: flex;
+      gap: var(--space-12);
+      padding: 0 var(--space-24) var(--space-16);
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .filter-group label {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .filter-group select,
+    .filter-group input {
+      padding: var(--space-6) var(--space-10);
+      border-radius: var(--radius-base);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-size: var(--font-size-sm);
+      min-width: 150px;
+    }
+
+    .view-toggle {
+      display: flex;
+      gap: 2px;
+      background: var(--color-secondary);
+      border-radius: var(--radius-base);
+      padding: 2px;
+    }
+    .view-toggle button {
+      padding: var(--space-6) var(--space-12);
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+      font-weight: var(--font-weight-medium);
+    }
+    .view-toggle button.active {
+      background: var(--color-surface);
+      color: var(--color-text);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .kanban-container {
+      display: flex;
+      gap: var(--space-12);
+      padding: 0 var(--space-24) var(--space-24);
+      overflow-x: auto;
+      min-height: 62vh;
+      align-items: flex-start;
+    }
+    .kanban-column {
+      min-width: 270px;
+      max-width: 300px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+    }
+    .kanban-column-header {
+      padding: var(--space-10) var(--space-12);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-sm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .kanban-column-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+      padding: var(--space-8);
+      background: var(--color-secondary);
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      min-height: 100px;
+      transition: background var(--duration-fast);
+    }
+    .kanban-column-body.drag-over { background: rgba(var(--color-teal-500-rgb), 0.12); }
+
+    .col-recibido .kanban-column-header { background: rgba(var(--color-info-rgb), 0.15); color: var(--color-info); }
+    .col-info_incompleta .kanban-column-header { background: rgba(var(--color-warning-rgb), 0.15); color: var(--color-warning); }
+    .col-en_evaluacion .kanban-column-header { background: rgba(59,130,246,0.12); color: rgb(59,130,246); }
+    .col-aprobado_reunion .kanban-column-header { background: rgba(var(--color-success-rgb), 0.15); color: var(--color-success); }
+    .col-propuesto_ensayo .kanban-column-header { background: rgba(147,51,234,0.12); color: rgb(147,51,234); }
+    .col-ensayo_campo .kanban-column-header { background: rgba(var(--color-success-rgb), 0.18); color: var(--color-primary); }
+    .col-cerrado .kanban-column-header { background: rgba(var(--color-success-rgb), 0.20); color: var(--color-success); }
+    .col-rechazado .kanban-column-header { background: rgba(var(--color-error-rgb), 0.12); color: var(--color-error); }
+
+    .col-count {
+      background: rgba(0,0,0,0.08);
+      border-radius: var(--radius-full);
+      padding: 2px 8px;
+      font-size: var(--font-size-xs);
+    }
+
+    .product-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-card-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-12);
+      cursor: grab;
+      transition: all var(--duration-fast);
+      box-shadow: var(--shadow-sm);
+    }
+    .product-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+    .product-card.dragging {
+      opacity: 0.5;
+      transform: rotate(2deg);
+    }
+    .product-card-name {
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-base);
+      margin-bottom: var(--space-4);
+    }
+    .product-card-empresa {
+      font-size: var(--font-size-xs);
+      color: var(--color-text-secondary);
+    }
+    .product-card-meta {
+      display: flex;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+    }
+    .tag-tipo { background: rgba(59,130,246,0.10); color: rgb(59,130,246); }
+    .tag-cultivo { background: rgba(34,197,94,0.10); color: rgb(34,197,94); }
+    .tag-score.high { background: rgba(var(--color-success-rgb),0.15); color: var(--color-success); }
+    .tag-score.medium { background: rgba(59,130,246,0.12); color: rgb(59,130,246); }
+    .tag-score.low { background: rgba(var(--color-warning-rgb),0.12); color: var(--color-warning); }
+    .tag-score.none { background: rgba(var(--color-error-rgb),0.12); color: var(--color-error); }
+
+    .table-container {
+      padding: 0 var(--space-24) var(--space-24);
+      display: none;
+    }
+    .table-container.active { display: block; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-card-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .data-table th {
+      background: var(--color-secondary);
+      padding: var(--space-10) var(--space-12);
+      text-align: left;
+      font-size: var(--font-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-secondary);
+      font-weight: var(--font-weight-semibold);
+    }
+    .data-table td {
+      padding: var(--space-10) var(--space-12);
+      border-bottom: 1px solid var(--color-card-border);
+      font-size: var(--font-size-sm);
+    }
+    .data-table tr:hover td { background: var(--color-secondary); }
+    .data-table tr { cursor: pointer; }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-6) var(--space-12);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+    }
+    .status-recibido { background: rgba(var(--color-info-rgb),0.12); color: var(--color-info); }
+    .status-info_incompleta { background: rgba(var(--color-warning-rgb),0.12); color: var(--color-warning); }
+    .status-en_evaluacion { background: rgba(59,130,246,0.10); color: rgb(59,130,246); }
+    .status-aprobado_reunion { background: rgba(var(--color-success-rgb),0.12); color: var(--color-success); }
+    .status-propuesto_ensayo { background: rgba(147,51,234,0.12); color: rgb(147,51,234); }
+    .status-ensayo_campo { background: rgba(var(--color-success-rgb),0.18); color: var(--color-success); }
+    .status-cerrado { background: rgba(var(--color-success-rgb),0.15); color: var(--color-success); }
+    .status-rechazado { background: rgba(var(--color-error-rgb),0.12); color: var(--color-error); }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      padding: var(--space-20);
+      overflow-y: auto;
+    }
+    .modal-overlay.active {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .modal {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      max-width: 930px;
+      width: 100%;
+      box-shadow: var(--shadow-lg);
+      margin: 36px auto;
+      border: 1px solid var(--color-card-border);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-16) var(--space-20);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .modal-header h2 { font-size: var(--font-size-xl); }
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: var(--font-size-2xl);
+      cursor: pointer;
+      color: var(--color-text-secondary);
+      padding: var(--space-4);
+    }
+    .modal-body { padding: var(--space-20); }
+    .modal-footer {
+      padding: var(--space-12) var(--space-20);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: var(--space-16);
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: var(--space-10) var(--space-16);
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-secondary);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+    }
+    .tab-btn.active {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
+    }
+    .form-group { margin-bottom: var(--space-12); }
+    .form-group label {
+      display: block;
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-4);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: var(--space-8) var(--space-12);
+      border-radius: var(--radius-base);
+      border: 1px solid var(--color-border);
+      background: var(--color-background);
+      color: var(--color-text);
+      font-size: var(--font-size-base);
+      font-family: inherit;
+    }
+    .form-group textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: 2px solid var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-8) var(--space-16);
+      align-items: center;
+    }
+    .score-label { font-size: var(--font-size-sm); }
+    .star-rating {
+      display: flex;
+      gap: 2px;
+    }
+    .star-rating button {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 0 2px;
+      opacity: 0.35;
+    }
+    .star-rating button.filled { opacity: 1; }
+
+    .score-result {
+      margin-top: var(--space-16);
+      padding: var(--space-16);
+      border-radius: var(--radius-md);
+      text-align: center;
+      background: var(--color-secondary);
+    }
+    .score-number {
+      font-size: var(--font-size-4xl);
+      font-weight: var(--font-weight-bold);
+    }
+    .score-category {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      margin-top: var(--space-4);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--color-border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--space-16);
+      padding-left: var(--space-12);
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      border: 2px solid var(--color-surface);
+    }
+    .timeline-date {
+      font-size: var(--font-size-xs);
+      color: var(--color-text-secondary);
+    }
+    .timeline-text {
+      font-size: var(--font-size-sm);
+      margin-top: var(--space-4);
+    }
+
+    .reunion-card {
+      border: 1px solid var(--color-card-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-12);
+      margin-bottom: var(--space-8);
+      background: var(--color-secondary);
+    }
+    .reunion-card h4 {
+      font-size: var(--font-size-sm);
+      margin-bottom: var(--space-4);
+    }
+    .reunion-card p {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+      margin: 0;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: var(--space-32);
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-sm);
+      background: var(--color-surface);
+      border: 1px solid var(--color-card-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .helper-line {
+      font-size: var(--font-size-xs);
+      color: var(--color-text-secondary);
+      margin-top: -6px;
+      margin-bottom: var(--space-12);
+    }
+
+    @media (max-width: 960px) {
+      .kanban-container { flex-direction: column; }
+      .kanban-column { max-width: 100%; min-width: 100%; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @font-face {
+      font-family: "FKGroteskNeue";
+      src: url("https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2") format("woff2");
+    }
   </style>
 </head>
 <body>
-
-<header class="app-header">
-  <h1>🧪 Pipeline de Productos Externos</h1>
-  <div class="header-actions">
-    <div class="view-toggle">
-      <button class="active" onclick="setView('kanban')" id="btnViewKanban">📋 Kanban</button>
-      <button onclick="setView('table')" id="btnViewTable">📊 Tabla</button>
+  <header class="app-header">
+    <h1>🧪 Pipeline de Productos Externos</h1>
+    <div class="header-actions">
+      <div class="view-toggle">
+        <button class="active" onclick="setView('kanban')" id="btnViewKanban">📋 Kanban</button>
+        <button onclick="setView('table')" id="btnViewTable">📊 Tabla</button>
+      </div>
+      <button class="btn btn--primary" onclick="openNewProductModal()">+ Nuevo Producto</button>
+      <a href="index.html" class="btn btn--secondary">← Inicio</a>
     </div>
-    <button class="btn btn--primary" onclick="openNewProductModal()">+ Nuevo Producto</button>
-    <a href="ensayos.html" class="btn btn--secondary">← Ensayos</a>
-  </div>
-</header>
+  </header>
 
-<section class="kpi-bar" id="kpiBar"></section>
+  <section class="kpi-bar" id="kpiBar"></section>
 
-<section class="filters-bar">
-  <div class="filter-group">
-    <label>Empresa</label>
-    <select id="filtroEmpresa" onchange="renderAll()"><option value="">Todas</option></select>
-  </div>
-  <div class="filter-group">
-    <label>Tipo producto</label>
-    <select id="filtroTipo" onchange="renderAll()">
-      <option value="">Todos</option>
-      <option value="fungicida">Fungicida</option>
-      <option value="insecticida">Insecticida</option>
-      <option value="bioestimulante">Bioestimulante</option>
-      <option value="poscosecha">Poscosecha</option>
-      <option value="fertilizante">Fertilizante</option>
-      <option value="biologico">Biológico</option>
-      <option value="otro">Otro</option>
-    </select>
-  </div>
-  <div class="filter-group">
-    <label>Cultivo</label>
-    <select id="filtroCultivo" onchange="renderAll()">
-      <option value="">Todos</option>
-      <option value="banano">Banano</option>
-      <option value="citricos">Cítricos</option>
-      <option value="ambos">Ambos</option>
-    </select>
-  </div>
-  <div class="filter-group">
-    <label>Buscar</label>
-    <input type="text" id="filtroBuscar" placeholder="Nombre, empresa..." oninput="renderAll()">
-  </div>
-</section>
-
-<main class="kanban-container" id="kanbanView"></main>
-
-<div class="table-container" id="tableView">
-  <table class="data-table">
-    <thead>
-      <tr>
-        <th>Producto</th><th>Empresa</th><th>Tipo</th><th>Cultivo</th>
-        <th>Puntuación</th><th>Estado</th><th>Fecha ingreso</th><th>Decisión</th>
-      </tr>
-    </thead>
-    <tbody id="tableBody"></tbody>
-  </table>
-</div>
-
-<!-- Modal nuevo producto -->
-<div class="modal-overlay" id="modalProducto">
-  <div class="modal">
-    <div class="modal-header">
-      <h2 id="modalProductoTitulo">Registrar Producto</h2>
-      <button class="modal-close" onclick="closeModal('modalProducto')">&times;</button>
+  <section class="filters-bar">
+    <div class="filter-group">
+      <label>Empresa</label>
+      <select id="filtroEmpresa" onchange="renderAll()">
+        <option value="">Todas</option>
+      </select>
     </div>
-    <div class="modal-body">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Empresa *</label>
-          <select id="prod_empresa" required>
-            <option value="">Seleccionar o crear nueva...</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Nueva empresa (si no existe)</label>
-          <input type="text" id="prod_nueva_empresa" placeholder="Nombre de la empresa">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nombre comercial *</label>
-          <input type="text" id="prod_nombre" required>
-        </div>
-        <div class="form-group">
-          <label>Ingrediente activo</label>
-          <input type="text" id="prod_ia">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Tipo de producto *</label>
-          <select id="prod_tipo">
-            <option value="fungicida">Fungicida</option>
-            <option value="insecticida">Insecticida</option>
-            <option value="bioestimulante">Bioestimulante</option>
-            <option value="poscosecha">Poscosecha</option>
-            <option value="fertilizante">Fertilizante</option>
-            <option value="biologico">Biológico</option>
-            <option value="otro">Otro</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Modo de acción</label>
-          <input type="text" id="prod_modo_accion">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Cultivos objetivo</label>
-          <select id="prod_cultivo">
-            <option value="banano">Banano</option>
-            <option value="citricos">Cítricos</option>
-            <option value="ambos">Ambos</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Problema que resuelve *</label>
-          <input type="text" id="prod_problema" placeholder="Ej: Sigatoka, corona, ácaro...">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>País de origen</label>
-          <input type="text" id="prod_pais">
-        </div>
-        <div class="form-group">
-          <label>¿Registrado en RD?</label>
-          <select id="prod_registro_rd">
-            <option value="no">No</option>
-            <option value="si">Sí</option>
-            <option value="tramite">En trámite</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Contacto (nombre, email, teléfono)</label>
-        <input type="text" id="prod_contacto" placeholder="Juan Pérez, juan@empresa.com, 809-555-1234">
-      </div>
-      <div class="form-group">
-        <label>Notas adicionales</label>
-        <textarea id="prod_notas"></textarea>
-      </div>
+    <div class="filter-group">
+      <label>Tipo producto</label>
+      <select id="filtroTipo" onchange="renderAll()">
+        <option value="">Todos</option>
+        <option value="fungicida">Fungicida</option>
+        <option value="insecticida">Insecticida</option>
+        <option value="bioestimulante">Bioestimulante</option>
+        <option value="poscosecha">Poscosecha</option>
+        <option value="fertilizante">Fertilizante</option>
+        <option value="biologico">Biológico</option>
+        <option value="otro">Otro</option>
+      </select>
     </div>
-    <div class="modal-footer">
-      <button class="btn btn--secondary" onclick="closeModal('modalProducto')">Cancelar</button>
-      <button class="btn btn--primary" onclick="saveProduct()">Guardar Producto</button>
+    <div class="filter-group">
+      <label>Cultivo</label>
+      <select id="filtroCultivo" onchange="renderAll()">
+        <option value="">Todos</option>
+        <option value="banano">Banano</option>
+        <option value="citricos">Cítricos</option>
+        <option value="ambos">Ambos</option>
+      </select>
     </div>
+    <div class="filter-group">
+      <label>Buscar</label>
+      <input type="text" id="filtroBuscar" placeholder="Nombre, empresa, problema..." oninput="renderAll()">
+    </div>
+  </section>
+
+  <main class="kanban-container" id="kanbanView"></main>
+
+  <div class="table-container" id="tableView">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Empresa</th>
+          <th>Tipo</th>
+          <th>Cultivo</th>
+          <th>Puntuación</th>
+          <th>Estado</th>
+          <th>Fecha ingreso</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
   </div>
-</div>
 
-<!-- Modal detalle producto -->
-<div class="modal-overlay" id="modalDetalle">
-  <div class="modal" style="max-width:950px">
-    <div class="modal-header">
-      <div>
-        <h2 id="detalle_nombre">Producto</h2>
-        <span id="detalle_empresa" style="font-size:var(--font-size-sm);color:var(--color-text-secondary)"></span>
+  <div class="modal-overlay" id="modalProducto">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Registrar Producto</h2>
+        <button class="modal-close" onclick="closeModal('modalProducto')">&times;</button>
       </div>
-      <button class="modal-close" onclick="closeModal('modalDetalle')">&times;</button>
-    </div>
-    <div class="modal-body" style="padding-top:0">
-      <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('tabInfo')">📄 Info</button>
-        <button class="tab-btn" onclick="switchTab('tabEval')">⭐ Evaluación</button>
-        <button class="tab-btn" onclick="switchTab('tabReuniones')">🤝 Reuniones</button>
-        <button class="tab-btn" onclick="switchTab('tabEnsayo')">🧪 Ensayo</button>
-        <button class="tab-btn" onclick="switchTab('tabHistorial')">📜 Historial</button>
-      </div>
-
-      <div class="tab-panel active" id="tabInfo">
+      <div class="modal-body">
+        <div class="helper-line">Puedes seleccionar una empresa existente o escribir una nueva.</div>
         <div class="form-row">
           <div class="form-group">
-            <label>Nombre comercial</label>
-            <div id="info_nombre" style="padding:var(--space-4) 0"></div>
+            <label>Empresa existente</label>
+            <select id="prod_empresa">
+              <option value="">Seleccionar...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Nueva empresa</label>
+            <input type="text" id="prod_nueva_empresa" placeholder="Nombre de la empresa">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre comercial *</label>
+            <input type="text" id="prod_nombre">
           </div>
           <div class="form-group">
             <label>Ingrediente activo</label>
-            <div id="info_ia" style="padding:var(--space-4) 0"></div>
+            <input type="text" id="prod_ia">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Tipo</label>
-            <div id="info_tipo" style="padding:var(--space-4) 0"></div>
+            <label>Tipo de producto *</label>
+            <select id="prod_tipo">
+              <option value="fungicida">Fungicida</option>
+              <option value="insecticida">Insecticida</option>
+              <option value="bioestimulante">Bioestimulante</option>
+              <option value="poscosecha">Poscosecha</option>
+              <option value="fertilizante">Fertilizante</option>
+              <option value="biologico">Biológico</option>
+              <option value="otro">Otro</option>
+            </select>
           </div>
           <div class="form-group">
             <label>Modo de acción</label>
-            <div id="info_modo" style="padding:var(--space-4) 0"></div>
+            <input type="text" id="prod_modo_accion">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Cultivo objetivo</label>
-            <div id="info_cultivo" style="padding:var(--space-4) 0"></div>
+            <select id="prod_cultivo">
+              <option value="banano">Banano</option>
+              <option value="citricos">Cítricos</option>
+              <option value="ambos">Ambos</option>
+            </select>
           </div>
           <div class="form-group">
-            <label>Problema</label>
-            <div id="info_problema" style="padding:var(--space-4) 0"></div>
+            <label>Problema que resuelve *</label>
+            <input type="text" id="prod_problema" placeholder="Ej: Sigatoka, corona, ácaro...">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>País</label>
-            <div id="info_pais" style="padding:var(--space-4) 0"></div>
+            <label>País de origen</label>
+            <input type="text" id="prod_pais">
           </div>
           <div class="form-group">
-            <label>Registro RD</label>
-            <div id="info_registro" style="padding:var(--space-4) 0"></div>
+            <label>¿Registrado en RD?</label>
+            <select id="prod_registro_rd">
+              <option value="no">No</option>
+              <option value="si">Sí</option>
+              <option value="tramite">En trámite</option>
+            </select>
           </div>
         </div>
         <div class="form-group">
-          <label>Contacto</label>
-          <div id="info_contacto" style="padding:var(--space-4) 0"></div>
+          <label>Contacto / referencia</label>
+          <input type="text" id="prod_contacto" placeholder="Nombre, email o teléfono">
         </div>
         <div class="form-group">
           <label>Notas internas</label>
-          <textarea id="info_notas" rows="3" style="width:100%;padding:var(--space-8);border-radius:var(--radius-base);border:1px solid var(--color-border);background:var(--color-background);color:var(--color-text);font-family:inherit"></textarea>
-        </div>
-        <div style="display:flex;gap:var(--space-8);margin-top:var(--space-8)">
-          <button class="btn btn--primary btn--sm" onclick="saveNotes()">Guardar notas</button>
-          <button class="btn btn--danger btn--sm" onclick="deleteProduct()">Eliminar producto</button>
+          <textarea id="prod_notas"></textarea>
         </div>
       </div>
-
-      <div class="tab-panel" id="tabEval">
-        <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);margin-bottom:var(--space-16)">
-          Evalúa cada criterio de 0 a 5 estrellas. La puntuación se calcula automáticamente.
-        </p>
-        <div class="score-grid" id="scoreGrid"></div>
-        <div class="score-result" id="scoreResult" style="display:none"></div>
-        <div style="margin-top:var(--space-12)">
-          <div class="form-group">
-            <label>Comentarios de evaluación</label>
-            <textarea id="eval_comentarios" rows="3" style="width:100%;padding:var(--space-8);border-radius:var(--radius-base);border:1px solid var(--color-border);background:var(--color-background);color:var(--color-text);font-family:inherit"></textarea>
-          </div>
-          <button class="btn btn--primary" onclick="saveEvaluation()">Guardar Evaluación</button>
-        </div>
-      </div>
-
-      <div class="tab-panel" id="tabReuniones">
-        <button class="btn btn--primary btn--sm" onclick="openReunionForm()" style="margin-bottom:var(--space-12)">+ Nueva Reunión</button>
-        <div id="reunionForm" style="display:none;border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-16);margin-bottom:var(--space-16)">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Fecha</label>
-              <input type="date" id="reunion_fecha">
-            </div>
-            <div class="form-group">
-              <label>Participantes internos</label>
-              <input type="text" id="reunion_internos" placeholder="Nombres separados por coma">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Resumen</label>
-            <textarea id="reunion_resumen" rows="3" style="width:100%;padding:var(--space-8);border-radius:var(--radius-base);border:1px solid var(--color-border);background:var(--color-background);color:var(--color-text);font-family:inherit"></textarea>
-          </div>
-          <div class="form-group">
-            <label>Acuerdos</label>
-            <textarea id="reunion_acuerdos" rows="2" style="width:100%;padding:var(--space-8);border-radius:var(--radius-base);border:1px solid var(--color-border);background:var(--color-background);color:var(--color-text);font-family:inherit"></textarea>
-          </div>
-          <div style="display:flex;gap:var(--space-8)">
-            <button class="btn btn--primary btn--sm" onclick="saveReunion()">Guardar Reunión</button>
-            <button class="btn btn--secondary btn--sm" onclick="document.getElementById('reunionForm').style.display='none'">Cancelar</button>
-          </div>
-        </div>
-        <div id="reunionesList"></div>
-      </div>
-
-      <div class="tab-panel" id="tabEnsayo">
-        <div id="ensayoStatus"></div>
-      </div>
-
-      <div class="tab-panel" id="tabHistorial">
-        <div id="historialTimeline" class="timeline"></div>
+      <div class="modal-footer">
+        <button class="btn btn--secondary" onclick="closeModal('modalProducto')">Cancelar</button>
+        <button class="btn btn--primary" onclick="saveProduct()">Guardar Producto</button>
       </div>
     </div>
-
-    <div class="modal-footer" id="detalleFooter" style="flex-wrap:wrap;justify-content:flex-start"></div>
   </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-config.js"></script>
+  <div class="modal-overlay" id="modalDetalle">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <h2 id="detalle_nombre">Producto</h2>
+          <div id="detalle_empresa" style="font-size:var(--font-size-sm);color:var(--color-text-secondary);margin-top:4px;"></div>
+        </div>
+        <button class="modal-close" onclick="closeModal('modalDetalle')">&times;</button>
+      </div>
+      <div class="modal-body" style="padding-top:0;">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="tabInfo" onclick="switchTab('tabInfo', this)">📄 Info</button>
+          <button class="tab-btn" data-tab="tabEval" onclick="switchTab('tabEval', this)">⭐ Evaluación</button>
+          <button class="tab-btn" data-tab="tabReuniones" onclick="switchTab('tabReuniones', this)">🤝 Reuniones</button>
+          <button class="tab-btn" data-tab="tabHistorial" onclick="switchTab('tabHistorial', this)">📜 Historial</button>
+        </div>
 
-<script>
-if (!window.DB) window.DB = {};
+        <div class="tab-panel active" id="tabInfo">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre comercial</label>
+              <div id="info_nombre"></div>
+            </div>
+            <div class="form-group">
+              <label>Ingrediente activo</label>
+              <div id="info_ia"></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Tipo</label>
+              <div id="info_tipo"></div>
+            </div>
+            <div class="form-group">
+              <label>Modo de acción</label>
+              <div id="info_modo"></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Cultivo objetivo</label>
+              <div id="info_cultivo"></div>
+            </div>
+            <div class="form-group">
+              <label>Problema</label>
+              <div id="info_problema"></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>País</label>
+              <div id="info_pais"></div>
+            </div>
+            <div class="form-group">
+              <label>Registro RD</label>
+              <div id="info_registro"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Notas internas</label>
+            <textarea id="info_notas" rows="4"></textarea>
+          </div>
+          <div style="display:flex;gap:var(--space-8);flex-wrap:wrap;">
+            <button class="btn btn--primary btn--sm" onclick="saveNotes()">Guardar notas</button>
+            <button class="btn btn--danger btn--sm" onclick="deleteProduct()">Eliminar producto</button>
+          </div>
+        </div>
 
-// ===== Helpers específicos de productos (no tocan DB.ensayos) =====
-DB.empresas = {
-  async listar() {
-    return await supabase
-      .from('empresas')
-      .select('*')
-      .eq('activa', true)
-      .order('nombre');
-  },
-  async crear(datos) {
-    datos.id = datos.id || 'emp_' + Date.now();
-    return await supabase
-      .from('empresas')
-      .insert(datos)
-      .select()
-      .single();
-  }
-};
+        <div class="tab-panel" id="tabEval">
+          <p class="helper-line" style="margin-top:0;">
+            Evalúa de 0 a 5 estrellas por criterio. El puntaje se calcula automáticamente sobre 100.
+          </p>
+          <div class="score-grid" id="scoreGrid"></div>
+          <div class="score-result" id="scoreResult" style="display:none;"></div>
+          <div style="margin-top:var(--space-12);">
+            <div class="form-group">
+              <label>Comentarios de evaluación</label>
+              <textarea id="eval_comentarios" rows="3"></textarea>
+            </div>
+            <button class="btn btn--primary" onclick="saveEvaluation()">Guardar evaluación</button>
+          </div>
+        </div>
 
-DB.productos_externos = {
-  async listar() {
-    return await supabase
-      .from('productos_externos')
-      .select('*')
-      .order('creado_en', { ascending: false });
-  },
-  async crear(datos) {
-    datos.id = datos.id || 'prod_' + Date.now();
-    return await supabase
-      .from('productos_externos')
-      .insert(datos)
-      .select()
-      .single();
-  },
-  async actualizar(id, datos) {
-    return await supabase
-      .from('productos_externos')
-      .update(datos)
-      .eq('id', id)
-      .select()
-      .single();
-  },
-  async eliminar(id) {
-    return await supabase
-      .from('productos_externos')
-      .delete()
-      .eq('id', id);
-  },
-  async cambiarEstado(id, nuevoEstado, estadoPublico, mensajePublico) {
-    const updates = { estado: nuevoEstado };
-    if (estadoPublico) updates.estado_publico = estadoPublico;
-    if (mensajePublico) updates.mensaje_publico = mensajePublico;
-    return await supabase
-      .from('productos_externos')
-      .update(updates)
-      .eq('id', id)
-      .select()
-      .single();
-  }
-};
+        <div class="tab-panel" id="tabReuniones">
+          <button class="btn btn--primary btn--sm" onclick="toggleReunionForm(true)" style="margin-bottom:var(--space-12);">+ Nueva Reunión</button>
+          <div id="reunionForm" style="display:none;border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-16);margin-bottom:var(--space-16);">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Fecha</label>
+                <input type="date" id="reunion_fecha">
+              </div>
+              <div class="form-group">
+                <label>Participantes internos</label>
+                <input type="text" id="reunion_internos" placeholder="Nombres separados por coma">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Resumen</label>
+              <textarea id="reunion_resumen" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Acuerdos</label>
+              <textarea id="reunion_acuerdos" rows="2"></textarea>
+            </div>
+            <div style="display:flex;gap:var(--space-8);">
+              <button class="btn btn--primary btn--sm" onclick="saveReunion()">Guardar reunión</button>
+              <button class="btn btn--secondary btn--sm" onclick="toggleReunionForm(false)">Cancelar</button>
+            </div>
+          </div>
+          <div id="reunionesList"></div>
+        </div>
 
-DB.evaluaciones_producto = {
-  async crear(datos) {
-    datos.id = datos.id || 'eval_' + Date.now();
-    return await supabase
-      .from('evaluaciones_producto')
-      .insert(datos)
-      .select()
-      .single();
-  }
-};
+        <div class="tab-panel" id="tabHistorial">
+          <div id="historialTimeline" class="timeline"></div>
+        </div>
+      </div>
+      <div class="modal-footer" id="detalleFooter" style="justify-content:flex-start;"></div>
+    </div>
+  </div>
 
-DB.reuniones_producto = {
-  async listarPorProducto(productoId) {
-    return await supabase
-      .from('reuniones_producto')
-      .select('*')
-      .eq('producto_id', productoId)
-      .order('fecha_reunion', { ascending: false });
-  },
-  async crear(datos) {
-    datos.id = datos.id || 'reu_' + Date.now();
-    return await supabase
-      .from('reuniones_producto')
-      .insert(datos)
-      .select()
-      .single();
-  }
-};
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth-guard.js"></script>
+  <script src="supabase-config.js"></script>
 
-DB.historial_producto = {
-  async listarPorProducto(productoId) {
-    return await supabase
-      .from('historial_producto')
-      .select('*')
-      .eq('producto_id', productoId)
-      .order('fecha', { ascending: false });
-  },
-  async registrar(productoId, accion, detalle) {
-    return await supabase
-      .from('historial_producto')
-      .insert({
-        id: 'hist_' + Date.now(),
-        producto_id: productoId,
-        accion,
-        detalle,
-        realizado_por: window.SESION ? window.SESION.nombre : 'I+D'
-      });
-  }
-};
+  <script>
+    if (!window.DB) window.DB = {};
 
-async function crearPreEnsayoDesdeProducto(productoId) {
-  const { data: producto, error: errProd } = await DB.productos_externos.listar();
-  if (errProd) return { error: errProd };
-  const p = (producto || []).find(x => x.id === productoId);
-  if (!p) return { error: { message: 'Producto no encontrado' } };
-
-  const ensayoId = 'ens_' + Date.now();
-  const nuevoEnsayo = {
-    id: ensayoId,
-    area: 'I+D - Productos externos',
-    reportado_por: 'Portal proveedores',
-    fecha_inicio: null,
-    prioridad: p.categoria_evaluacion === 'prioridad_alta' ? 'Alta' : 'Media',
-    responsable_id: window.SESION ? window.SESION.nombre : 'I+D',
-    validador_campo: '',
-    metrica_objetivo: 'Evaluar ' + p.nombre_comercial + ' para ' + p.problema_objetivo,
-    estado: 'activo',
-    roi_estimado: 0,
-    porcentaje_avance: 0,
-    exito: false,
-    publicaciones: [],
-    producto_externo_id: productoId
-  };
-  const { data: ensayo, error: errEns } = await DB.ensayos.crear(nuevoEnsayo);
-  if (errEns) return { error: errEns };
-
-  await DB.productos_externos.actualizar(productoId, {
-    estado: 'ensayo_campo',
-    ensayo_id: ensayoId,
-    estado_publico: 'En ensayo de campo',
-    mensaje_publico: 'Su producto ha sido aprobado y se inició un ensayo de campo en nuestras fincas.'
-  });
-  await DB.historial_producto.registrar(
-    productoId,
-    'Pre-ensayo creado',
-    'Ensayo ID: ' + ensayoId + ' — ' + nuevoEnsayo.metrica_objetivo
-  );
-  return { data: ensayo, ensayoId };
-}
-
-// ===== Estado interno y toda la lógica (igual a la versión anterior que te gustó) =====
-// (Por brevedad: es el mismo bloque de JS que ya estás usando: loadFromSupabase,
-// renderAll, openDetail, saveEvaluation, etc.)
-
-// ---- aquí reutiliza exactamente el JS que ya pegaste antes (loadFromSupabase, etc.) ----
-</script>
-
-<script src="auth-guard.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    if (window.SESION) {
-      // puedes mostrar user en algún sitio si quieres
+    if (!DB.empresas) {
+      DB.empresas = {
+        async listar() {
+          return await supabase
+            .from('empresas')
+            .select('*')
+            .eq('activa', true)
+            .order('nombre');
+        },
+        async crear(datos) {
+          datos.id = datos.id || 'emp_' + Date.now();
+          return await supabase
+            .from('empresas')
+            .insert(datos)
+            .select()
+            .single();
+        }
+      };
     }
-  });
-</script>
+
+    if (!DB.productos_externos) {
+      DB.productos_externos = {
+        async listar() {
+          return await supabase
+            .from('productos_externos')
+            .select('*')
+            .order('creado_en', { ascending: false });
+        },
+        async crear(datos) {
+          datos.id = datos.id || 'prod_' + Date.now();
+          return await supabase
+            .from('productos_externos')
+            .insert(datos)
+            .select()
+            .single();
+        },
+        async actualizar(id, datos) {
+          return await supabase
+            .from('productos_externos')
+            .update(datos)
+            .eq('id', id)
+            .select()
+            .single();
+        },
+        async eliminar(id) {
+          return await supabase
+            .from('productos_externos')
+            .delete()
+            .eq('id', id);
+        },
+        async cambiarEstado(id, nuevoEstado, estadoPublico, mensajePublico) {
+          const updates = { estado: nuevoEstado };
+          if (estadoPublico) updates.estado_publico = estadoPublico;
+          if (mensajePublico) updates.mensaje_publico = mensajePublico;
+          return await supabase
+            .from('productos_externos')
+            .update(updates)
+            .eq('id', id)
+            .select()
+            .single();
+        }
+      };
+    }
+
+    if (!DB.evaluaciones_producto) {
+      DB.evaluaciones_producto = {
+        async listar() {
+          return await supabase
+            .from('evaluaciones_producto')
+            .select('*')
+            .order('evaluado_en', { ascending: false });
+        },
+        async crear(datos) {
+          datos.id = datos.id || 'eval_' + Date.now();
+          return await supabase
+            .from('evaluaciones_producto')
+            .insert(datos)
+            .select()
+            .single();
+        }
+      };
+    }
+
+    if (!DB.reuniones_producto) {
+      DB.reuniones_producto = {
+        async listarPorProducto(productoId) {
+          return await supabase
+            .from('reuniones_producto')
+            .select('*')
+            .eq('producto_id', productoId)
+            .order('fecha_reunion', { ascending: false });
+        },
+        async crear(datos) {
+          datos.id = datos.id || 'reu_' + Date.now();
+          return await supabase
+            .from('reuniones_producto')
+            .insert(datos)
+            .select()
+            .single();
+        }
+      };
+    }
+
+    if (!DB.historial_producto) {
+      DB.historial_producto = {
+        async listarPorProducto(productoId) {
+          return await supabase
+            .from('historial_producto')
+            .select('*')
+            .eq('producto_id', productoId)
+            .order('fecha', { ascending: false });
+        },
+        async registrar(productoId, accion, detalle) {
+          const id = 'hist_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+          return await supabase
+            .from('historial_producto')
+            .insert({
+              id,
+              producto_id: productoId,
+              accion,
+              detalle,
+              realizado_por: window.SESION ? window.SESION.nombre : 'I+D'
+            });
+        }
+      };
+    }
+
+    let empresas = [];
+    let productos = [];
+    let evaluaciones = [];
+    let currentProduct = null;
+    let currentView = 'kanban';
+
+    const criteriaConfig = [
+      { key: 'alineacion_estrategica', label: 'Alineación estratégica' },
+      { key: 'viabilidad_tecnica', label: 'Viabilidad técnica' },
+      { key: 'potencial_mercado', label: 'Potencial de mercado' },
+      { key: 'diferenciacion', label: 'Diferenciación' },
+      { key: 'soporte_proveedor', label: 'Soporte del proveedor' }
+    ];
+
+    const statusMeta = {
+      recibido: { label: 'Recibido', public: 'Solicitud recibida', message: 'Producto recibido y pendiente de revisión inicial.', icon: '📥' },
+      info_incompleta: { label: 'Info incompleta', public: 'Pendiente de información', message: 'Falta información para continuar la evaluación.', icon: '⚠️' },
+      en_evaluacion: { label: 'En evaluación', public: 'En evaluación técnica', message: 'El equipo técnico está evaluando el producto.', icon: '🔍' },
+      aprobado_reunion: { label: 'Aprobado reunión', public: 'Reunión técnica realizada', message: 'El producto pasó a revisión avanzada tras reunión técnica.', icon: '🤝' },
+      propuesto_ensayo: { label: 'Listo para ensayo', public: 'Seleccionado para ensayo', message: 'El producto quedó listo para ensayo.', icon: '📋' },
+      ensayo_campo: { label: 'En ensayo', public: 'En ensayo de campo', message: 'El producto está en etapa de ensayo.', icon: '🌱' },
+      cerrado: { label: 'Cerrado', public: 'Proceso finalizado', message: 'El proceso del producto fue cerrado.', icon: '✅' },
+      rechazado: { label: 'Rechazado', public: 'No seleccionado', message: 'El producto no fue seleccionado en esta etapa.', icon: '⛔' }
+    };
+
+    const kanbanOrder = [
+      'recibido',
+      'info_incompleta',
+      'en_evaluacion',
+      'aprobado_reunion',
+      'propuesto_ensayo',
+      'ensayo_campo',
+      'cerrado',
+      'rechazado'
+    ];
+
+    const scoreState = {
+      alineacion_estrategica: 0,
+      viabilidad_tecnica: 0,
+      potencial_mercado: 0,
+      diferenciacion: 0,
+      soporte_proveedor: 0
+    };
+
+    function escapeHtml(value) {
+      const div = document.createElement('div');
+      div.textContent = value == null ? '' : String(value);
+      return div.innerHTML;
+    }
+
+    function empresaNombre(empresaId) {
+      const empresa = empresas.find(e => e.id === empresaId);
+      return empresa ? empresa.nombre : 'Sin empresa';
+    }
+
+    function formatDate(dateLike) {
+      if (!dateLike) return '-';
+      const d = new Date(dateLike);
+      if (isNaN(d)) return String(dateLike).substring(0, 10);
+      return d.toISOString().substring(0, 10);
+    }
+
+    function getStatusBadge(estado) {
+      const meta = statusMeta[estado] || { label: estado, icon: '•' };
+      return `<span class="status-badge status-${estado}">${meta.icon} ${escapeHtml(meta.label)}</span>`;
+    }
+
+    function getLatestEvaluation(productId) {
+      const list = evaluaciones
+        .filter(e => e.producto_id === productId)
+        .sort((a, b) => String(b.evaluado_en || '').localeCompare(String(a.evaluado_en || '')));
+      return list[0] || null;
+    }
+
+    function computeScoreFromRow(row) {
+      if (!row) return null;
+      if (row.score_total != null) return Number(row.score_total);
+      if (row.puntuacion_total != null) return Number(row.puntuacion_total);
+
+      const keys = [
+        'alineacion_estrategica',
+        'viabilidad_tecnica',
+        'potencial_mercado',
+        'diferenciacion',
+        'soporte_proveedor'
+      ];
+      const values = keys.map(k => Number(row[k] || 0));
+      const valid = values.filter(v => !isNaN(v));
+      if (!valid.length) return null;
+      return Math.round((valid.reduce((a, b) => a + b, 0) / (keys.length * 5)) * 100);
+    }
+
+    function scoreClass(score) {
+      if (score == null) return 'none';
+      if (score >= 75) return 'high';
+      if (score >= 50) return 'medium';
+      return 'low';
+    }
+
+    function scoreText(score) {
+      if (score == null) return 'Sin score';
+      if (score >= 75) return 'Alta prioridad';
+      if (score >= 50) return 'Prioridad media';
+      return 'Baja prioridad';
+    }
+
+    function filteredProducts() {
+      const empresa = document.getElementById('filtroEmpresa').value;
+      const tipo = document.getElementById('filtroTipo').value;
+      const cultivo = document.getElementById('filtroCultivo').value;
+      const buscar = document.getElementById('filtroBuscar').value.trim().toLowerCase();
+
+      return productos.filter(p => {
+        const empresaOk = !empresa || p.empresa_id === empresa;
+        const tipoOk = !tipo || p.tipo_producto === tipo;
+        const cultivoOk = !cultivo || p.cultivos_objetivo === cultivo;
+        const bag = [
+          p.nombre_comercial,
+          p.ingrediente_activo,
+          p.problema_objetivo,
+          p.tipo_producto,
+          empresaNombre(p.empresa_id)
+        ].join(' ').toLowerCase();
+        const buscarOk = !buscar || bag.includes(buscar);
+        return empresaOk && tipoOk && cultivoOk && buscarOk;
+      });
+    }
+
+    function renderKPIs(items) {
+      const total = items.length;
+      const enPipeline = items.filter(p => !['rechazado', 'cerrado'].includes(p.estado)).length;
+      const listosEnsayo = items.filter(p => ['propuesto_ensayo', 'ensayo_campo'].includes(p.estado)).length;
+      const empresasActivas = new Set(items.map(p => p.empresa_id).filter(Boolean)).size;
+      const convertidos = items.filter(p => ['propuesto_ensayo', 'ensayo_campo', 'cerrado'].includes(p.estado)).length;
+      const tasa = total ? Math.round((convertidos / total) * 100) : 0;
+
+      document.getElementById('kpiBar').innerHTML = `
+        <div class="kpi-card"><div class="kpi-value">${total}</div><div class="kpi-label">Productos totales</div></div>
+        <div class="kpi-card"><div class="kpi-value">${enPipeline}</div><div class="kpi-label">En pipeline</div></div>
+        <div class="kpi-card"><div class="kpi-value">${listosEnsayo}</div><div class="kpi-label">Listos / en ensayo</div></div>
+        <div class="kpi-card"><div class="kpi-value">${empresasActivas}</div><div class="kpi-label">Empresas activas</div></div>
+        <div class="kpi-card"><div class="kpi-value">${tasa}%</div><div class="kpi-label">Conversión</div></div>
+      `;
+    }
+
+    function renderCard(producto) {
+      const evalRow = getLatestEvaluation(producto.id);
+      const score = computeScoreFromRow(evalRow);
+
+      return `
+        <article class="product-card" draggable="true" data-id="${producto.id}" onclick="openDetail('${producto.id}')">
+          <div class="product-card-name">${escapeHtml(producto.nombre_comercial || '')}</div>
+          <div class="product-card-empresa">${escapeHtml(empresaNombre(producto.empresa_id))}</div>
+          <div class="product-card-meta">
+            <span class="tag tag-tipo">${escapeHtml(producto.tipo_producto || '-')}</span>
+            <span class="tag tag-cultivo">${escapeHtml(producto.cultivos_objetivo || '-')}</span>
+            <span class="tag tag-score ${scoreClass(score)}">${score == null ? 'Sin score' : score + '/100'}</span>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderKanban(items) {
+      const html = kanbanOrder.map(status => {
+        const colItems = items.filter(p => p.estado === status);
+        return `
+          <div class="kanban-column col-${status}">
+            <div class="kanban-column-header">
+              <span>${escapeHtml(statusMeta[status].label)}</span>
+              <span class="col-count">${colItems.length}</span>
+            </div>
+            <div class="kanban-column-body" data-status="${status}">
+              ${colItems.map(renderCard).join('') || '<div class="empty-state" style="padding:16px;">Sin productos</div>'}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('kanbanView').innerHTML = html;
+      attachDnD();
+    }
+
+    function renderTable(items) {
+      const tbody = document.getElementById('tableBody');
+
+      if (!items.length) {
+        tbody.innerHTML = `<tr><td colspan="8"><div class="empty-state">No hay productos con esos filtros.</div></td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = items.map(p => {
+        const evalRow = getLatestEvaluation(p.id);
+        const score = computeScoreFromRow(evalRow);
+
+        return `
+          <tr onclick="openDetail('${p.id}')">
+            <td>${escapeHtml(p.nombre_comercial || '')}</td>
+            <td>${escapeHtml(empresaNombre(p.empresa_id))}</td>
+            <td>${escapeHtml(p.tipo_producto || '')}</td>
+            <td>${escapeHtml(p.cultivos_objetivo || '')}</td>
+            <td>${score == null ? '—' : score + '/100'}</td>
+            <td>${getStatusBadge(p.estado)}</td>
+            <td>${formatDate(p.creado_en)}</td>
+            <td>${escapeHtml(scoreText(score))}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderAll() {
+      const items = filteredProducts();
+      renderKPIs(items);
+      renderKanban(items);
+      renderTable(items);
+    }
+
+    function setView(view) {
+      currentView = view;
+      document.getElementById('btnViewKanban').classList.toggle('active', view === 'kanban');
+      document.getElementById('btnViewTable').classList.toggle('active', view === 'table');
+      document.getElementById('kanbanView').style.display = view === 'kanban' ? 'flex' : 'none';
+      document.getElementById('tableView').classList.toggle('active', view === 'table');
+    }
+
+    function attachDnD() {
+      const cards = document.querySelectorAll('.product-card');
+      const cols = document.querySelectorAll('.kanban-column-body');
+
+      cards.forEach(card => {
+        card.addEventListener('dragstart', e => {
+          e.stopPropagation();
+          card.classList.add('dragging');
+          e.dataTransfer.setData('text/plain', card.dataset.id);
+        });
+        card.addEventListener('dragend', () => card.classList.remove('dragging'));
+      });
+
+      cols.forEach(col => {
+        col.addEventListener('dragover', e => {
+          e.preventDefault();
+          col.classList.add('drag-over');
+        });
+        col.addEventListener('dragleave', () => col.classList.remove('drag-over'));
+        col.addEventListener('drop', async e => {
+          e.preventDefault();
+          col.classList.remove('drag-over');
+          const id = e.dataTransfer.getData('text/plain');
+          const nuevoEstado = col.dataset.status;
+          if (id && nuevoEstado) {
+            await changeProductState(id, nuevoEstado, true);
+          }
+        });
+      });
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    function openNewProductModal() {
+      document.getElementById('prod_empresa').value = '';
+      document.getElementById('prod_nueva_empresa').value = '';
+      document.getElementById('prod_nombre').value = '';
+      document.getElementById('prod_ia').value = '';
+      document.getElementById('prod_tipo').value = 'fungicida';
+      document.getElementById('prod_modo_accion').value = '';
+      document.getElementById('prod_cultivo').value = 'banano';
+      document.getElementById('prod_problema').value = '';
+      document.getElementById('prod_pais').value = '';
+      document.getElementById('prod_registro_rd').value = 'no';
+      document.getElementById('prod_contacto').value = '';
+      document.getElementById('prod_notas').value = '';
+      document.getElementById('modalProducto').classList.add('active');
+    }
+
+    function populateEmpresaSelects() {
+      const filtro = document.getElementById('filtroEmpresa');
+      const alta = document.getElementById('prod_empresa');
+
+      filtro.innerHTML = '<option value="">Todas</option>' + empresas.map(e =>
+        `<option value="${e.id}">${escapeHtml(e.nombre)}</option>`
+      ).join('');
+
+      alta.innerHTML = '<option value="">Seleccionar...</option>' + empresas.map(e =>
+        `<option value="${e.id}">${escapeHtml(e.nombre)}</option>`
+      ).join('');
+    }
+
+    async function saveProduct() {
+      const nombre = document.getElementById('prod_nombre').value.trim();
+      const problema = document.getElementById('prod_problema').value.trim();
+      const ia = document.getElementById('prod_ia').value.trim();
+      const empresaIdSelected = document.getElementById('prod_empresa').value;
+      const empresaNueva = document.getElementById('prod_nueva_empresa').value.trim();
+
+      if (!nombre || !problema) {
+        alert('Completa al menos nombre comercial y problema que resuelve.');
+        return;
+      }
+      if (!empresaIdSelected && !empresaNueva) {
+        alert('Selecciona una empresa o escribe una nueva.');
+        return;
+      }
+
+      let empresaId = empresaIdSelected;
+
+      try {
+        if (!empresaId && empresaNueva) {
+          const { data: nuevaEmpresa, error: errEmp } = await DB.empresas.crear({
+            nombre: empresaNueva,
+            activa: true
+          });
+          if (errEmp) throw errEmp;
+          empresaId = nuevaEmpresa.id;
+          empresas.unshift(nuevaEmpresa);
+          populateEmpresaSelects();
+        }
+
+        const notasBase = document.getElementById('prod_notas').value.trim();
+        const contacto = document.getElementById('prod_contacto').value.trim();
+        const notasFinales = [notasBase, contacto ? 'Contacto: ' + contacto : ''].filter(Boolean).join('\n');
+
+        const { data, error } = await DB.productos_externos.crear({
+          empresa_id: empresaId,
+          nombre_comercial: nombre,
+          ingrediente_activo: ia || null,
+          tipo_producto: document.getElementById('prod_tipo').value,
+          modo_accion: document.getElementById('prod_modo_accion').value.trim() || null,
+          cultivos_objetivo: document.getElementById('prod_cultivo').value,
+          problema_objetivo: problema,
+          pais_origen: document.getElementById('prod_pais').value.trim() || null,
+          registro_rd: document.getElementById('prod_registro_rd').value,
+          estado: 'recibido',
+          estado_publico: 'Solicitud recibida',
+          mensaje_publico: 'Producto recibido y pendiente de revisión inicial.',
+          notas_internas: notasFinales || null,
+          creado_por: window.SESION ? window.SESION.nombre : 'I+D'
+        });
+
+        if (error) throw error;
+
+        productos.unshift(data);
+        closeModal('modalProducto');
+        renderAll();
+        alert('Producto registrado correctamente.');
+      } catch (err) {
+        console.error(err);
+        alert('Error guardando producto: ' + (err.message || err));
+      }
+    }
+
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+
+    function fillScoreGrid(values = {}) {
+      criteriaConfig.forEach(c => {
+        scoreState[c.key] = Number(values[c.key] || 0);
+      });
+
+      const grid = document.getElementById('scoreGrid');
+      grid.innerHTML = criteriaConfig.map(c => `
+        <div class="score-label">${escapeHtml(c.label)}</div>
+        <div class="star-rating">
+          ${[1,2,3,4,5].map(n => `
+            <button type="button"
+              class="${scoreState[c.key] >= n ? 'filled' : ''}"
+              onclick="setCriterionScore('${c.key}', ${n})">⭐</button>
+          `).join('')}
+        </div>
+      `).join('');
+
+      renderScoreResult();
+    }
+
+    function setCriterionScore(key, value) {
+      scoreState[key] = value;
+      fillScoreGrid(scoreState);
+    }
+
+    function calculateScore() {
+      const total = criteriaConfig.reduce((sum, c) => sum + Number(scoreState[c.key] || 0), 0);
+      return Math.round((total / (criteriaConfig.length * 5)) * 100);
+    }
+
+    function renderScoreResult() {
+      const score = calculateScore();
+      const result = document.getElementById('scoreResult');
+      result.style.display = 'block';
+      result.innerHTML = `
+        <div class="score-number">${score}/100</div>
+        <div class="score-category">${escapeHtml(scoreText(score))}</div>
+      `;
+    }
+
+    async function openDetail(productId) {
+      currentProduct = productos.find(p => p.id === productId);
+      if (!currentProduct) return;
+
+      document.getElementById('detalle_nombre').textContent = currentProduct.nombre_comercial || 'Producto';
+      document.getElementById('detalle_empresa').textContent = empresaNombre(currentProduct.empresa_id);
+
+      document.getElementById('info_nombre').textContent = currentProduct.nombre_comercial || '-';
+      document.getElementById('info_ia').textContent = currentProduct.ingrediente_activo || '-';
+      document.getElementById('info_tipo').textContent = currentProduct.tipo_producto || '-';
+      document.getElementById('info_modo').textContent = currentProduct.modo_accion || '-';
+      document.getElementById('info_cultivo').textContent = currentProduct.cultivos_objetivo || '-';
+      document.getElementById('info_problema').textContent = currentProduct.problema_objetivo || '-';
+      document.getElementById('info_pais').textContent = currentProduct.pais_origen || '-';
+      document.getElementById('info_registro').textContent = currentProduct.registro_rd || '-';
+      document.getElementById('info_notas').value = currentProduct.notas_internas || '';
+
+      const evalRow = getLatestEvaluation(currentProduct.id) || {};
+      fillScoreGrid(evalRow);
+      document.getElementById('eval_comentarios').value = evalRow.comentarios || '';
+
+      await loadReuniones(currentProduct.id);
+      await loadHistorial(currentProduct.id);
+      renderDetailFooter();
+
+      switchTab('tabInfo', document.querySelector('.tab-btn[data-tab="tabInfo"]'));
+      document.getElementById('modalDetalle').classList.add('active');
+    }
+
+    async function loadReuniones(productId) {
+      try {
+        const { data, error } = await DB.reuniones_producto.listarPorProducto(productId);
+        if (error) throw error;
+
+        const reuniones = data || [];
+        const list = document.getElementById('reunionesList');
+
+        if (!reuniones.length) {
+          list.innerHTML = '<div class="empty-state">No hay reuniones registradas.</div>';
+          return;
+        }
+
+        list.innerHTML = reuniones.map(r => `
+          <div class="reunion-card">
+            <h4>${formatDate(r.fecha_reunion)} · ${escapeHtml(r.participantes_internos || 'Sin participantes')}</h4>
+            <p><strong>Resumen:</strong> ${escapeHtml(r.resumen || '-')}</p>
+            <p style="margin-top:6px;"><strong>Acuerdos:</strong> ${escapeHtml(r.acuerdos || '-')}</p>
+          </div>
+        `).join('');
+      } catch (err) {
+        console.error(err);
+        document.getElementById('reunionesList').innerHTML = '<div class="empty-state">No se pudieron cargar las reuniones.</div>';
+      }
+    }
+
+    async function loadHistorial(productId) {
+      try {
+        const { data, error } = await DB.historial_producto.listarPorProducto(productId);
+        if (error) throw error;
+
+        const historial = data || [];
+        const box = document.getElementById('historialTimeline');
+
+        if (!historial.length) {
+          box.innerHTML = '<div class="empty-state">Sin historial disponible.</div>';
+          return;
+        }
+
+        box.innerHTML = historial.map(h => `
+          <div class="timeline-item">
+            <div class="timeline-date">${formatDate(h.fecha)}</div>
+            <div class="timeline-text">
+              <strong>${escapeHtml(h.accion || '')}</strong><br>
+              ${escapeHtml(h.detalle || '')}
+            </div>
+          </div>
+        `).join('');
+      } catch (err) {
+        console.error(err);
+        document.getElementById('historialTimeline').innerHTML = '<div class="empty-state">No se pudo cargar el historial.</div>';
+      }
+    }
+
+    function renderDetailFooter() {
+      if (!currentProduct) return;
+      const footer = document.getElementById('detalleFooter');
+      const estado = currentProduct.estado;
+      const actions = [];
+
+      if (estado !== 'en_evaluacion') {
+        actions.push(`<button class="btn btn--secondary btn--sm" onclick="changeProductState('${currentProduct.id}','en_evaluacion')">Marcar en evaluación</button>`);
+      }
+
+      if (!['aprobado_reunion','propuesto_ensayo','cerrado'].includes(estado)) {
+        actions.push(`<button class="btn btn--success btn--sm" onclick="changeProductState('${currentProduct.id}','aprobado_reunion')">Aprobar reunión</button>`);
+      }
+
+      if (!['propuesto_ensayo','cerrado'].includes(estado)) {
+        actions.push(`<button class="btn btn--warning btn--sm" onclick="changeProductState('${currentProduct.id}','propuesto_ensayo')">Listo para ensayo</button>`);
+      }
+
+      if (estado !== 'rechazado') {
+        actions.push(`<button class="btn btn--danger btn--sm" onclick="changeProductState('${currentProduct.id}','rechazado')">Rechazar</button>`);
+      }
+
+      if (estado !== 'cerrado') {
+        actions.push(`<button class="btn btn--secondary btn--sm" onclick="changeProductState('${currentProduct.id}','cerrado')">Cerrar</button>`);
+      }
+
+      footer.innerHTML = actions.join('');
+    }
+
+    async function saveNotes() {
+      if (!currentProduct) return;
+
+      try {
+        const notas = document.getElementById('info_notas').value;
+        const { data, error } = await DB.productos_externos.actualizar(currentProduct.id, {
+          notas_internas: notas
+        });
+        if (error) throw error;
+
+        currentProduct = data;
+        productos = productos.map(p => p.id === data.id ? data : p);
+        await DB.historial_producto.registrar(currentProduct.id, 'Notas actualizadas', 'Se actualizaron las notas internas.');
+        alert('Notas guardadas.');
+      } catch (err) {
+        console.error(err);
+        alert('No se pudieron guardar las notas: ' + (err.message || err));
+      }
+    }
+
+    async function saveEvaluation() {
+      if (!currentProduct) return;
+
+      try {
+        const payload = {
+          producto_id: currentProduct.id,
+          alineacion_estrategica: scoreState.alineacion_estrategica,
+          viabilidad_tecnica: scoreState.viabilidad_tecnica,
+          potencial_mercado: scoreState.potencial_mercado,
+          diferenciacion: scoreState.diferenciacion,
+          soporte_proveedor: scoreState.soporte_proveedor,
+          comentarios: document.getElementById('eval_comentarios').value.trim() || null,
+          evaluado_por: window.SESION ? window.SESION.nombre : 'I+D'
+        };
+
+        const { data, error } = await DB.evaluaciones_producto.crear(payload);
+        if (error) throw error;
+
+        evaluaciones.unshift(data);
+        const score = computeScoreFromRow(data);
+
+        await DB.historial_producto.registrar(
+          currentProduct.id,
+          'Evaluación registrada',
+          'Se registró evaluación con score ' + (score == null ? 'N/D' : score + '/100')
+        );
+
+        renderAll();
+        await loadHistorial(currentProduct.id);
+        alert('Evaluación guardada.');
+      } catch (err) {
+        console.error(err);
+        alert('No se pudo guardar la evaluación. Si el error menciona columnas, ajustamos los nombres exactos de evaluaciones_producto.');
+      }
+    }
+
+    function toggleReunionForm(show) {
+      document.getElementById('reunionForm').style.display = show ? 'block' : 'none';
+      if (!show) {
+        document.getElementById('reunion_fecha').value = '';
+        document.getElementById('reunion_internos').value = '';
+        document.getElementById('reunion_resumen').value = '';
+        document.getElementById('reunion_acuerdos').value = '';
+      }
+    }
+
+    async function saveReunion() {
+      if (!currentProduct) return;
+
+      const fecha = document.getElementById('reunion_fecha').value;
+      const internos = document.getElementById('reunion_internos').value.trim();
+      const resumen = document.getElementById('reunion_resumen').value.trim();
+
+      if (!fecha || !resumen) {
+        alert('La reunión necesita fecha y resumen.');
+        return;
+      }
+
+      try {
+        const { error } = await DB.reuniones_producto.crear({
+          producto_id: currentProduct.id,
+          fecha_reunion: fecha,
+          participantes_internos: internos || null,
+          resumen,
+          acuerdos: document.getElementById('reunion_acuerdos').value.trim() || null,
+          creado_por: window.SESION ? window.SESION.nombre : 'I+D'
+        });
+        if (error) throw error;
+
+        await DB.historial_producto.registrar(currentProduct.id, 'Reunión registrada', 'Se agregó reunión del ' + fecha);
+        toggleReunionForm(false);
+        await loadReuniones(currentProduct.id);
+        await loadHistorial(currentProduct.id);
+        alert('Reunión guardada.');
+      } catch (err) {
+        console.error(err);
+        alert('No se pudo guardar la reunión: ' + (err.message || err));
+      }
+    }
+
+    async function changeProductState(productId, newState, silent = false) {
+      const producto = productos.find(p => p.id === productId);
+      if (!producto) return;
+
+      const meta = statusMeta[newState];
+      if (!meta) return;
+
+      try {
+        const { data, error } = await DB.productos_externos.cambiarEstado(
+          productId,
+          newState,
+          meta.public,
+          meta.message
+        );
+        if (error) throw error;
+
+        productos = productos.map(p => p.id === data.id ? data : p);
+
+        if (currentProduct && currentProduct.id === data.id) {
+          currentProduct = data;
+          renderDetailFooter();
+        }
+
+        await DB.historial_producto.registrar(
+          productId,
+          'Cambio de estado',
+          'Estado actualizado a ' + meta.label
+        );
+
+        renderAll();
+
+        if (currentProduct && currentProduct.id === productId) {
+          await loadHistorial(productId);
+        }
+
+        if (!silent) {
+          alert('Estado actualizado a: ' + meta.label);
+        }
+      } catch (err) {
+        console.error(err);
+        alert('No se pudo cambiar el estado: ' + (err.message || err));
+      }
+    }
+
+    async function deleteProduct() {
+      if (!currentProduct) return;
+      const ok = confirm('¿Seguro que deseas eliminar este producto?');
+      if (!ok) return;
+
+      try {
+        const { error } = await DB.productos_externos.eliminar(currentProduct.id);
+        if (error) throw error;
+
+        productos = productos.filter(p => p.id !== currentProduct.id);
+        closeModal('modalDetalle');
+        renderAll();
+        alert('Producto eliminado.');
+      } catch (err) {
+        console.error(err);
+        alert('No se pudo eliminar. Si existen registros relacionados (historial, reuniones, evaluaciones), puede requerir borrado en cascada.');
+      }
+    }
+
+    async function loadAll() {
+      try {
+        const [empRes, prodRes, evalRes] = await Promise.all([
+          DB.empresas.listar(),
+          DB.productos_externos.listar(),
+          DB.evaluaciones_producto.listar()
+        ]);
+
+        if (empRes.error) throw empRes.error;
+        if (prodRes.error) throw prodRes.error;
+
+        empresas = empRes.data || [];
+        productos = prodRes.data || [];
+        evaluaciones = (!evalRes.error && evalRes.data) ? evalRes.data : [];
+
+        populateEmpresaSelects();
+        renderAll();
+        setView(currentView);
+      } catch (err) {
+        console.error(err);
+        document.getElementById('kanbanView').innerHTML =
+          '<div class="empty-state">No se pudo cargar la información. Revisa consola, tablas y permisos RLS.</div>';
+      }
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        closeModal('modalProducto');
+        closeModal('modalDetalle');
+      }
+    });
+
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', e => {
+        if (e.target === overlay) overlay.classList.remove('active');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.SESION === null) {
+        window.location.href = 'login.html';
+        return;
+      }
+      fillScoreGrid();
+      loadAll();
+    });
+  </script>
 </body>
 </html>
+
