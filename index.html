@@ -81,7 +81,7 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      padding: 24px 32px 32px;
+      padding: 24px 32px 16px;
     }
 
     .panel {
@@ -147,36 +147,21 @@
     }
 
     .footer {
-      padding: 0 32px 28px;
+      padding: 8px 32px 24px;
       color: var(--muted);
-      font-size: 14px;
-    }
-
-    .mini {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 6px;
-    }
-
-    .mini-box {
-      border: 1px dashed var(--border);
-      border-radius: 12px;
-      padding: 14px;
-      background: #fcfdfd;
-    }
-
-    .mini-box strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 14px;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(94, 82, 64, 0.08);
     }
 
     @media (max-width: 760px) {
       h1 { font-size: 30px; }
       .grid { grid-template-columns: 1fr; }
-      .mini { grid-template-columns: 1fr; }
       .hero, .grid, .footer { padding-left: 20px; padding-right: 20px; }
+      .footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -226,23 +211,12 @@
       </section>
 
       <section class="footer">
-        <div class="mini">
-          <div class="mini-box">
-            <strong>Archivo principal</strong>
-            Este archivo debe llamarse <code>index.html</code>.
-          </div>
-          <div class="mini-box">
-            <strong>Ubicación</strong>
-            Debe quedar en la raíz del repositorio.
-          </div>
-          <div class="mini-box">
-            <strong>Rutas</strong>
-            Los enlaces funcionan con archivos HTML en el mismo nivel.
-          </div>
-        </div>
+        <span>Portal de productos externos · I+D</span>
+        <span>Uso interno y proveedores autorizados</span>
       </section>
     </main>
   </div>
 </body>
 </html>
+
 
