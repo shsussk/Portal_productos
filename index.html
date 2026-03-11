@@ -3,116 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal Productos · Inicio</title>
+  <title>Acceso · Portales producto</title>
   <style>
-    :root {
-      --bg: #f7f8f5;
-      --surface: #ffffff;
-      --text: #16343b;
-      --muted: #66757b;
-      --primary: #21808d;
-      --primary-hover: #1d7480;
-      --border: rgba(94, 82, 64, 0.18);
-      --shadow: 0 10px 30px rgba(0,0,0,0.06);
-      --radius: 18px;
+    /* reset moderno y variables */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    * { box-sizing: border-box; }
+    :root {
+      --fondo: #f4f7fb;
+      --superficie: #ffffff;
+      --texto-fuerte: #1a2e35;
+      --texto-suave: #4a5c64;
+      --primario: #1f7a8c;
+      --primario-oscuro: #16606e;
+      --borde-ligero: rgba(0, 30, 40, 0.1);
+      --sombra-elegante: 0 20px 35px -10px rgba(0, 50, 60, 0.15);
+      --radio: 28px;
+    }
 
     body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(180deg, #f7f8f5 0%, #eef4f4 100%);
-      color: var(--text);
-    }
-
-    .wrap {
       min-height: 100vh;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: linear-gradient(145deg, #edf3f5 0%, #dde9ed 100%);
+      color: var(--texto-fuerte);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 32px 20px;
+      padding: 1.5rem;
     }
 
-    .card {
+    /* tarjeta principal con efecto vidrio */
+    .contenedor {
+      max-width: 1000px;
       width: 100%;
-      max-width: 980px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: var(--radio);
+      box-shadow: var(--sombra-elegante);
       overflow: hidden;
     }
 
-    .hero {
-      padding: 40px 32px 24px;
-      background:
-        radial-gradient(circle at top right, rgba(33,128,141,0.14), transparent 28%),
-        radial-gradient(circle at bottom left, rgba(33,128,141,0.08), transparent 30%);
+    /* cabecera reducida al mínimo: solo título */
+    .cabecera {
+      padding: 2.5rem 2.5rem 1rem;
+      text-align: center;
     }
 
-    .badge {
-      display: inline-flex;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(33,128,141,0.12);
-      color: var(--primary);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .03em;
-      text-transform: uppercase;
+    .cabecera h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1a4b58, #12505e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.2rem;
     }
 
-    h1 {
-      margin: 14px 0 10px;
-      font-size: 38px;
-      line-height: 1.05;
-    }
-
-    .lead {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.6;
-      max-width: 760px;
-    }
-
-    .grid {
+    /* rejilla sin texto parásito */
+    .rejilla {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      padding: 24px 32px 16px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem;
+      padding: 1.5rem 2.5rem 2.5rem;
     }
 
-    .panel {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-      background: #fff;
-    }
-
-    .panel h2 {
-      margin: 0 0 10px;
-      font-size: 22px;
-    }
-
-    .panel p {
-      margin: 0 0 18px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .panel ul {
-      margin: 0 0 18px;
-      padding-left: 18px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .actions {
+    /* tarjetas internas minimalistas */
+    .portal {
+      background: var(--superficie);
+      border-radius: 24px;
+      padding: 2rem 1.8rem 2rem;
+      border: 1px solid var(--borde-ligero);
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 25px -8px rgba(0, 60, 70, 0.1);
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+      flex-direction: column;
+    }
+
+    .portal:hover {
+      transform: translateY(-6px);
+      border-color: rgba(31, 122, 140, 0.3);
+      box-shadow: 0 25px 35px -12px rgba(25, 100, 115, 0.25);
+    }
+
+    /* icono grande (sin texto, solo emoji como indicador) */
+    .icono-portal {
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: 1.2rem;
+      filter: drop-shadow(0 5px 5px rgba(0,80,90,0.1));
+    }
+
+    .portal h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--texto-fuerte);
+      letter-spacing: -0.01em;
+    }
+
+    /* descriptor ultra corto — una línea — no hay "mensajes" */
+    .portal p {
+      font-size: 1rem;
+      color: var(--texto-suave);
+      margin-bottom: 1.8rem;
+      line-height: 1.5;
+      font-weight: 400;
+      border-left: 3px solid var(--primario);
+      padding-left: 0.9rem;
+      opacity: 0.85;
+    }
+
+    /* acciones: botones simples */
+    .accion {
+      margin-top: auto;
+      display: flex;
     }
 
     .btn {
@@ -120,104 +130,124 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      padding: 12px 16px;
-      border-radius: 12px;
+      padding: 0.9rem 1.8rem;
+      border-radius: 40px;
       font-weight: 600;
-      transition: .2s ease;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-hover);
-    }
-
-    .btn-secondary {
+      font-size: 1.1rem;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
       background: transparent;
-      color: var(--text);
-      border-color: var(--border);
+      color: var(--primario);
+      border: 1.5px solid var(--primario);
+      width: 100%;
+      letter-spacing: 0.3px;
     }
 
-    .btn-secondary:hover {
-      background: #f4f7f7;
+    .btn-primario {
+      background: var(--primario);
+      color: white;
+      border: 1.5px solid var(--primario);
+      box-shadow: 0 5px 12px -5px rgba(31, 122, 140, 0.4);
     }
 
-    .footer {
-      padding: 8px 32px 24px;
-      color: var(--muted);
-      font-size: 13px;
+    .btn-primario:hover {
+      background: var(--primario-oscuro);
+      border-color: var(--primario-oscuro);
+      transform: scale(1.02);
+    }
+
+    .btn-secundario {
+      background: transparent;
+      color: var(--primario);
+    }
+
+    .btn-secundario:hover {
+      background: rgba(31, 122, 140, 0.06);
+      border-color: var(--primario-oscuro);
+      color: var(--primario-oscuro);
+    }
+
+    /* pie de página simple, sin mensajes redundantes */
+    .pie {
+      padding: 0.8rem 2.5rem 1.8rem;
       display: flex;
       justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(94, 82, 64, 0.08);
+      color: #4f6f7a;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(31, 122, 140, 0.15);
+      margin-top: 0.2rem;
     }
 
-    @media (max-width: 760px) {
-      h1 { font-size: 30px; }
-      .grid { grid-template-columns: 1fr; }
-      .hero, .grid, .footer { padding-left: 20px; padding-right: 20px; }
-      .footer { flex-direction: column; align-items: flex-start; }
+    .pie span {
+      opacity: 0.7;
+      font-weight: 400;
     }
+
+    /* responsive impecable */
+    @media (max-width: 700px) {
+      .rejilla {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.2rem 1.8rem 2rem;
+      }
+      .cabecera {
+        padding: 2rem 1.8rem 0.5rem;
+      }
+      .cabecera h1 {
+        font-size: 2.2rem;
+      }
+      .pie {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 1rem 1.8rem 1.5rem;
+      }
+      .portal {
+        padding: 1.8rem;
+      }
+    }
+
+    /* sin mensajes, sin alerts, sin javascript */
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <main class="card">
-      <section class="hero">
-        <span class="badge">Portal I+D</span>
-        <h1>Portal de productos externos</h1>
-        <p class="lead">
-          Accede al portal interno de evaluación o al portal para proveedores desde esta página principal.
-        </p>
-      </section>
+  <div class="contenedor">
+    <!-- cabecera sin badge ni descripciones largas -->
+    <header class="cabecera">
+      <h1>portales · producto</h1>
+    </header>
 
-      <section class="grid">
-        <article class="panel">
-          <h2>Portal interno</h2>
-          <p>
-            Vista para el equipo técnico de I+D: registro, evaluación, reuniones, historial y seguimiento del pipeline.
-          </p>
-          <ul>
-            <li>Gestión de empresas y productos.</li>
-            <li>Evaluación técnica con puntuación.</li>
-            <li>Seguimiento por estados.</li>
-            <li>Historial y reuniones.</li>
-          </ul>
-          <div class="actions">
-            <a class="btn btn-primary" href="portal-productos.html">Abrir portal interno</a>
-          </div>
-        </article>
+    <!-- rejilla de acceso directo: dos paneles sin textos superfluos -->
+    <div class="rejilla">
+      <!-- portal interno I+D -->
+      <article class="portal">
+        <div class="icono-portal">🔬</div>
+        <h2>interno</h2>
+        <p>evaluación técnica · pipeline</p>
+        <div class="accion">
+          <a href="portal-productos.html" class="btn btn-primario">acceder</a>
+        </div>
+      </article>
 
-        <article class="panel">
-          <h2>Portal proveedor</h2>
-          <p>
-            Vista para empresas proveedoras: registro de productos y consulta del estado público de seguimiento.
-          </p>
-          <ul>
-            <li>Registro de nuevos productos.</li>
-            <li>Consulta de estado público.</li>
-            <li>Historial visible para la empresa.</li>
-            <li>Interfaz simple para carga inicial.</li>
-          </ul>
-          <div class="actions">
-            <a class="btn btn-primary" href="portal-proveedor.html">Abrir portal proveedor</a>
-          </div>
-        </article>
-      </section>
+      <!-- portal proveedor -->
+      <article class="portal">
+        <div class="icono-portal">🤝</div>
+        <h2>proveedor</h2>
+        <p>registro · estado público</p>
+        <div class="accion">
+          <a href="portal-proveedor.html" class="btn btn-secundario">entrar</a>
+        </div>
+      </article>
+    </div>
 
-      <section class="footer">
-        <span>Portal de productos externos · I+D</span>
-        <span>Uso interno y proveedores autorizados</span>
-      </section>
-    </main>
+    <!-- pie minimal, sólo contexto necesario -->
+    <footer class="pie">
+      <span>I+D · portales externos</span>
+      <span>uso autorizado</span>
+    </footer>
   </div>
 </body>
 </html>
-
 
 
